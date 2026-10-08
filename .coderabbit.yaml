@@ -1,0 +1,18 @@
+# CodeRabbit Configuration File
+version: "2"
+reviews:
+  profile: "assertive"
+  request_changes_workflow: true
+  high_level_summary: true
+  auto_review:
+    enabled: true
+    drafts: false
+  tools:
+    eslint:
+      enabled: true
+    shellcheck:
+      enabled: true
+    markdownlint:
+      enabled: true
+chat:
+  auto_reply: true

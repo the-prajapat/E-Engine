@@ -1,0 +1,17 @@
+# Roo Code Multi-Mode & Rule Framework (.roorules)
+
+## Core Architectural Conventions
+1. **Strict Separation of Concerns**:
+   - `/src/ui-ux-design/` contains pure presentation design tokens and dumb UI components. NEVER import services, database clients, or business state directly into this folder.
+   - `/src/backend-engine/` handles all I/O, Supabase SDK calls, and authentication services.
+   - `/src/filters-and-routing/` handles route guards and filtering algorithms.
+2. **White-Label Single-Point Modification**:
+   - Brand assets, logos, and typography must be configured via `/src/ui-ux-design/` and `/src/assets/`.
+   - Feature enablement must strictly pass through `/src/core-config/feature-flags.js`.
+3. **Execution Modes**:
+   - **Architect Mode**: Verify boundaries and module structure before code generation.
+   - **Code Mode**: Surgical, typed, robust implementation without incomplete stubbing or inline hacks.
+   - **Debug Mode**: Trace root cause systematically and eliminate regressions.
+   - **Review Mode**: Audit against multi-tenant safety, memory leaks, and performance bottlenecks.
+4. **Ralph Loop & Self-Healing**:
+   - Run verification checks upon every modification to ensure 0 broken imports and syntax validity.

@@ -1,0 +1,4 @@
+# Cline Rules for E-Engine
+- Enforce strict modular separation between `/src/ui-ux-design`, `/src/backend-engine`, `/src/core-config`, and `/src/pages`.
+- Ensure dumb components accept props and emit callbacks without direct network or state mutations.
+- Keep experimental features isolated in `/src/experimental-features` until explicitly graduated.
