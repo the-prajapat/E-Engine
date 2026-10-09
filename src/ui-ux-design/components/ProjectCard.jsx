@@ -1,109 +1,54 @@
 import React from 'react';
-import { stitchTheme } from '../theme.config.js';
 
 /**
- * ProjectCard Component (Stitch AI UI)
- * STRICT RULE: Dumb presentation component. Accepts props only.
+ * ProjectCard Component (Dumb Presentation Component)
+ * Normalized mobile card for B2B Projects with min 44px tap targets.
  *
  * @param {Object} props
- * @param {Object} props.project - Project entity
- * @param {string|number} props.project.id
- * @param {string} props.project.name
- * @param {string} props.project.status - 'In Progress' | 'Completed' | 'Pending'
- * @param {string} props.project.client
- * @param {number|string} [props.project.budget]
+ * @param {Object} props.project
  * @param {Function} [props.onSelectProject]
  */
 export default function ProjectCard({ project, onSelectProject }) {
   if (!project) return null;
 
-  const getStatusColor = (status = '') => {
-    switch (status.toLowerCase()) {
-      case 'completed':
-        return stitchTheme.colors.accent;
-      case 'in progress':
-      case 'active':
-        return stitchTheme.colors.primary;
-      case 'pending':
-        return stitchTheme.colors.accentWarning;
-      default:
-        return stitchTheme.colors.textMuted;
-    }
-  };
-
-  const statusColor = getStatusColor(project.status);
+  const isCompleted = project.status?.toLowerCase() === 'completed';
+  const isActive = project.status?.toLowerCase() === 'active' || project.status?.toLowerCase() === 'in progress';
 
   return (
-    <div
-      style={{
-        backgroundColor: stitchTheme.colors.bgCard,
-        borderRadius: stitchTheme.radius.lg,
-        border: `1px solid ${stitchTheme.colors.border}`,
-        padding: '1.25rem',
-        boxShadow: stitchTheme.shadows.card,
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '0.75rem',
-      }}
-    >
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-        <div>
-          <span style={{ fontSize: '0.75rem', color: stitchTheme.colors.textMuted }}>
+    <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-sm flex flex-col gap-3 transition-all hover:shadow-md">
+      <div className="flex justify-between items-start gap-2">
+        <div className="min-w-0 flex-1">
+          <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">
             Client: {project.client || 'Enterprise'}
           </span>
-          <h4
-            style={{
-              margin: '0.2rem 0 0 0',
-              fontSize: '1.05rem',
-              fontWeight: 700,
-              color: stitchTheme.colors.textMain,
-            }}
-          >
+          <h4 className="text-sm font-bold text-slate-900 truncate mt-0.5">
             {project.name}
           </h4>
         </div>
 
         <span
-          style={{
-            fontSize: '0.72rem',
-            fontWeight: 600,
-            padding: '0.25rem 0.6rem',
-            borderRadius: stitchTheme.radius.full,
-            color: statusColor,
-            backgroundColor: `${statusColor}18`,
-            border: `1px solid ${statusColor}40`,
-          }}
+          className={`shrink-0 text-[11px] font-bold px-2 py-0.5 rounded-full border ${
+            isCompleted
+              ? 'text-emerald-700 bg-emerald-50 border-emerald-200'
+              : isActive
+              ? 'text-blue-700 bg-blue-50 border-blue-200'
+              : 'text-amber-700 bg-amber-50 border-amber-200'
+          }`}
         >
           ● {project.status || 'Active'}
         </span>
       </div>
 
       {project.description && (
-        <p
-          style={{
-            margin: 0,
-            fontSize: '0.85rem',
-            color: stitchTheme.colors.textMuted,
-            lineHeight: 1.4,
-          }}
-        >
+        <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
           {project.description}
         </p>
       )}
 
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginTop: '0.5rem',
-          paddingTop: '0.75rem',
-          borderTop: `1px solid ${stitchTheme.colors.border}`,
-        }}
-      >
+      <div className="mt-auto pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
         <div>
-          <span style={{ fontSize: '0.75rem', color: stitchTheme.colors.textMuted }}>Allocation: </span>
-          <span style={{ fontSize: '0.9rem', fontWeight: 600, color: stitchTheme.colors.textMain }}>
+          <span className="text-[10px] font-medium text-slate-400 block">Allocation</span>
+          <span className="text-xs font-bold text-slate-900">
             ₹{project.budget ? Number(project.budget).toLocaleString('en-IN') : 'N/A'}
           </span>
         </div>
@@ -112,16 +57,7 @@ export default function ProjectCard({ project, onSelectProject }) {
           <button
             onClick={() => onSelectProject(project)}
             type="button"
-            style={{
-              padding: '0.35rem 0.75rem',
-              fontSize: '0.8rem',
-              fontWeight: 600,
-              color: stitchTheme.colors.primary,
-              backgroundColor: 'transparent',
-              border: `1px solid ${stitchTheme.colors.primary}`,
-              borderRadius: stitchTheme.radius.md,
-              cursor: 'pointer',
-            }}
+            className="min-h-[44px] px-3.5 flex items-center justify-center text-xs font-bold text-blue-700 bg-blue-50 hover:bg-blue-100 active:bg-blue-200 rounded-xl transition-all active:scale-95 border border-blue-100"
           >
             View Details →
           </button>

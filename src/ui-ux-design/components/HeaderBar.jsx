@@ -15,106 +15,61 @@ import { stitchTheme } from '../theme.config.js';
  */
 export default function HeaderBar({
   title = 'E-Engine Store',
-  subtitle = 'Powered by Stitch AI',
-  userName = 'Guest User',
+  subtitle = 'Verified Catalog',
+  userName = 'Shopper',
   itemCount = 0,
-  onToggleMode,
-  activeMode = 'retail',
+  onProfileClick,
+  onSearchClick,
 }) {
   return (
-    <header
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '1rem 1.5rem',
-        backgroundColor: stitchTheme.colors.bgCard,
-        borderBottom: `1px solid ${stitchTheme.colors.border}`,
-        boxShadow: stitchTheme.shadows.subtle,
-      }}
-    >
-      <div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <span style={{ fontSize: '1.25rem' }}>✨</span>
-          <h1
-            style={{
-              margin: 0,
-              fontSize: '1.15rem',
-              fontWeight: stitchTheme.typography.headingWeight,
-              color: stitchTheme.colors.textMain,
-            }}
-          >
-            {title}
-          </h1>
-        </div>
-        <p
-          style={{
-            margin: '0.2rem 0 0 1.75rem',
-            fontSize: '0.78rem',
-            color: stitchTheme.colors.textMuted,
-          }}
-        >
-          {subtitle}
-        </p>
-      </div>
-
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-        {onToggleMode && (
-          <button
-            onClick={onToggleMode}
-            type="button"
-            style={{
-              padding: '0.45rem 0.85rem',
-              fontSize: '0.8rem',
-              fontWeight: 600,
-              border: `1px solid ${stitchTheme.colors.border}`,
-              borderRadius: stitchTheme.radius.full,
-              backgroundColor: activeMode === 'wholesale' ? '#0f172a' : '#2563eb',
-              color: '#ffffff',
-              cursor: 'pointer',
-              transition: stitchTheme.transitions.fast,
-            }}
-          >
-            Switch to {activeMode === 'retail' ? 'Wholesale (B2B)' : 'Retail (B2C)'}
-          </button>
-        )}
-
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            padding: '0.35rem 0.75rem',
-            backgroundColor: stitchTheme.colors.bgLight,
-            borderRadius: stitchTheme.radius.md,
-            border: `1px solid ${stitchTheme.colors.border}`,
-          }}
-        >
-          <span style={{ fontSize: '0.85rem' }}>👤</span>
-          <span
-            style={{
-              fontSize: '0.825rem',
-              fontWeight: 500,
-              color: stitchTheme.colors.textMain,
-            }}
-          >
-            {userName}
-          </span>
-          {itemCount > 0 && (
-            <span
-              style={{
-                marginLeft: '0.25rem',
-                backgroundColor: stitchTheme.colors.primary,
-                color: '#ffffff',
-                fontSize: '0.7rem',
-                fontWeight: 700,
-                padding: '0.1rem 0.45rem',
-                borderRadius: stitchTheme.radius.full,
-              }}
-            >
-              {itemCount}
+    <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-xs px-4 py-3">
+      <div className="flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2.5 min-w-0">
+          <div className="w-9 h-9 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0 text-blue-700">
+            <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>
+              bolt
             </span>
+          </div>
+          <div className="flex flex-col min-w-0">
+            <h1 className="text-sm font-bold text-slate-900 tracking-tight truncate">
+              {title}
+            </h1>
+            <p className="text-[11px] font-medium text-slate-500 truncate">
+              {subtitle}
+            </p>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-1.5 shrink-0">
+          {onSearchClick && (
+            <button
+              onClick={onSearchClick}
+              type="button"
+              aria-label="Search"
+              className="w-11 h-11 flex items-center justify-center rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 active:scale-95 transition-all"
+            >
+              <span className="material-symbols-outlined text-[20px]">search</span>
+            </button>
           )}
+
+          <button
+            onClick={onProfileClick}
+            type="button"
+            aria-label="User Profile"
+            className="h-11 px-3 flex items-center gap-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-800 active:scale-95 transition-all border border-slate-200/60"
+          >
+            <span className="material-symbols-outlined text-[20px] text-blue-700">
+              account_circle
+            </span>
+            <span className="text-xs font-bold max-w-[80px] truncate hidden sm:inline">
+              {userName}
+            </span>
+            {itemCount > 0 && (
+              <span className="bg-emerald-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full ml-1">
+                {itemCount}
+              </span>
+            )}
+          </button>
         </div>
       </div>
     </header>

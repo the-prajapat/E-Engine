@@ -1,39 +1,15 @@
 import React from 'react';
-import { stitchTheme } from '../theme.config.js';
 
 /**
- * WholesaleLayout (Stitch AI Layout Shell)
- * STRICT RULE: Pure dumb presentation layout slot.
+ * WholesaleLayout (Dumb Mobile Presentation Shell)
+ * ISSUE 1: Strict mobile container: w-full max-w-md mx-auto min-h-screen bg-slate-100/70 relative pb-20 overflow-x-hidden.
  */
-export default function WholesaleLayout({ header, children, sidebar, footer }) {
+export default function WholesaleLayout({ header, children, footer, banner }) {
   return (
-    <div
-      style={{
-        minHeight: '100vh',
-        backgroundColor: '#f1f5f9',
-        display: 'flex',
-        flexDirection: 'column',
-        fontFamily: stitchTheme.typography.fontFamily,
-      }}
-    >
+    <div className="w-full max-w-md mx-auto min-h-screen bg-slate-100/70 relative pb-20 overflow-x-hidden flex flex-col select-none">
       {header}
-      <div style={{ flex: 1, display: 'flex', maxWidth: '1360px', margin: '0 auto', width: '100%' }}>
-        {sidebar && (
-          <aside
-            style={{
-              width: '260px',
-              padding: '1.5rem',
-              borderRight: `1px solid ${stitchTheme.colors.border}`,
-              backgroundColor: stitchTheme.colors.bgCard,
-            }}
-          >
-            {sidebar}
-          </aside>
-        )}
-        <main style={{ flex: 1, padding: '1.5rem', overflowY: 'auto' }}>
-          {children}
-        </main>
-      </div>
+      {banner && <div className="px-3.5 pt-2.5">{banner}</div>}
+      <main className="flex-1 px-3.5 py-3 w-full">{children}</main>
       {footer}
     </div>
   );

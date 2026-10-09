@@ -1,154 +1,103 @@
 import React from 'react';
-import { stitchTheme } from '../theme.config.js';
+import QuantityStepper from './QuantityStepper.jsx';
 
 /**
- * ProductCard Component (Stitch AI UI)
- * STRICT RULE: Dumb presentation component. Accepts props only.
+ * ProductCard Component (Dumb Presentation Component)
+ * ISSUE 1 & ISSUE 2: Normalized mobile card with 44px+ tap targets, high contrast,
+ * Deep Trust Blue, Quick-Commerce Green & Warning Orange badges.
  *
  * @param {Object} props
- * @param {Object} props.product - Product data object
+ * @param {Object} props.product
  * @param {string|number} props.product.id
  * @param {string} props.product.title
  * @param {number} props.product.price
  * @param {string} [props.product.category]
  * @param {string} [props.product.image]
- * @param {string} [props.product.moq] - Minimum Order Quantity for Wholesale
+ * @param {string} [props.product.weight]
+ * @param {number} [props.product.moq]
+ * @param {number} [props.quantity=0]
  * @param {Function} [props.onAddToCart]
+ * @param {Function} [props.onQuantityChange]
  */
-export default function ProductCard({ product, onAddToCart }) {
+export default function ProductCard({
+  product,
+  quantity = 0,
+  onAddToCart,
+  onQuantityChange,
+}) {
   if (!product) return null;
 
+  const handleStep = (newQty) => {
+    if (onQuantityChange) {
+      onQuantityChange(product, newQty);
+    } else if (onAddToCart && newQty > 0) {
+      onAddToCart(product);
+    }
+  };
+
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        backgroundColor: stitchTheme.colors.bgCard,
-        borderRadius: stitchTheme.radius.lg,
-        border: `1px solid ${stitchTheme.colors.border}`,
-        padding: '1rem',
-        boxShadow: stitchTheme.shadows.card,
-        transition: stitchTheme.transitions.normal,
-        position: 'relative',
-        overflow: 'hidden',
-      }}
-    >
-      {/* Product Image / Visual Badge */}
-      <div
-        style={{
-          width: '100%',
-          height: '140px',
-          borderRadius: stitchTheme.radius.md,
-          backgroundColor: stitchTheme.colors.bgLight,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontSize: '2.5rem',
-          marginBottom: '0.85rem',
-          overflow: 'hidden',
-        }}
-      >
+    <div className="flex flex-col bg-white rounded-2xl border border-slate-100 shadow-sm p-3 transition-all duration-200 hover:shadow-md relative overflow-hidden select-none">
+      {/* Visual Badge / Image Area */}
+      <div className="w-full h-32 rounded-xl bg-slate-50 border border-slate-100/80 flex items-center justify-center relative overflow-hidden mb-2.5">
         {product.image ? (
           <img
             src={product.image}
             alt={product.title}
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            className="w-full h-full object-cover"
+            loading="lazy"
           />
         ) : (
-          <span>📦</span>
+          <span className="text-3xl">📦</span>
+        )}
+
+        {/* Top Badges */}
+        {product.moq ? (
+          <div className="absolute top-2 left-2 bg-orange-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-md shadow-xs flex items-center gap-1">
+            <span className="material-symbols-outlined text-[13px] leading-none">inventory_2</span>
+            MOQ: {product.moq} Units
+          </div>
+        ) : (
+          <div className="absolute top-2 left-2 bg-emerald-600 text-white text-[10px] font-extrabold px-1.5 py-0.5 rounded-md shadow-xs flex items-center gap-0.5">
+            <span className="material-symbols-outlined text-[12px] leading-none" style={{ fontVariationSettings: "'FILL' 1" }}>
+              bolt
+            </span>
+            10 MINS
+          </div>
         )}
       </div>
 
-      {/* Category Tag */}
+      {/* Category Pill */}
       {product.category && (
-        <span
-          style={{
-            alignSelf: 'flex-start',
-            fontSize: '0.7rem',
-            fontWeight: 600,
-            textTransform: 'uppercase',
-            letterSpacing: '0.05em',
-            color: stitchTheme.colors.primary,
-            backgroundColor: stitchTheme.colors.primaryLight,
-            padding: '0.2rem 0.5rem',
-            borderRadius: stitchTheme.radius.sm,
-            marginBottom: '0.4rem',
-          }}
-        >
+        <span className="self-start text-[10px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-2 py-0.5 rounded-md mb-1.5">
           {product.category}
         </span>
       )}
 
       {/* Product Title */}
-      <h3
-        style={{
-          margin: '0 0 0.35rem 0',
-          fontSize: '0.95rem',
-          fontWeight: stitchTheme.typography.semiBoldWeight,
-          color: stitchTheme.colors.textMain,
-          lineHeight: 1.35,
-        }}
-      >
+      <h3 className="text-xs font-bold text-slate-900 line-clamp-2 leading-snug mb-1 min-h-[32px]">
         {product.title}
       </h3>
 
-      {/* MOQ / B2B spec if present */}
-      {product.moq && (
-        <p
-          style={{
-            margin: '0 0 0.5rem 0',
-            fontSize: '0.75rem',
-            color: stitchTheme.colors.accentWarning,
-            fontWeight: 500,
-          }}
-        >
-          MOQ: {product.moq} Units
-        </p>
-      )}
+      {/* Weight / Spec */}
+      <p className="text-[11px] font-medium text-slate-500 mb-2">
+        {product.weight || (product.moq ? `Bulk Lot • Tier 1` : '1 unit')}
+      </p>
 
-      {/* Price & Action */}
-      <div
-        style={{
-          marginTop: 'auto',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          paddingTop: '0.75rem',
-          borderTop: `1px solid ${stitchTheme.colors.border}`,
-        }}
-      >
-        <div>
-          <span style={{ fontSize: '0.75rem', color: stitchTheme.colors.textMuted }}>Price: </span>
-          <span
-            style={{
-              fontSize: '1.05rem',
-              fontWeight: 700,
-              color: stitchTheme.colors.primary,
-            }}
-          >
+      {/* Price & Action Stepper */}
+      <div className="mt-auto pt-2 border-t border-slate-100 flex items-center justify-between gap-2">
+        <div className="flex flex-col min-w-0">
+          <span className="text-[10px] font-medium text-slate-400">Price</span>
+          <span className="text-sm font-extrabold text-blue-900 truncate">
             ₹{Number(product.price).toLocaleString('en-IN')}
           </span>
         </div>
 
-        {onAddToCart && (
-          <button
-            onClick={() => onAddToCart(product)}
-            type="button"
-            style={{
-              backgroundColor: stitchTheme.colors.primary,
-              color: '#ffffff',
-              border: 'none',
-              padding: '0.45rem 0.85rem',
-              borderRadius: stitchTheme.radius.md,
-              fontSize: '0.8rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-              transition: stitchTheme.transitions.fast,
-            }}
-          >
-            + Add
-          </button>
-        )}
+        <div className="shrink-0">
+          <QuantityStepper
+            quantity={quantity}
+            onChange={handleStep}
+          />
+        </div>
       </div>
     </div>
   );
