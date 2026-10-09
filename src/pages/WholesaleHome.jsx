@@ -3,6 +3,7 @@ import {
   fetchUserDetails,
   fetchProjectList,
   fetchProductCatalog,
+  fetchStitchProjectDetails,
 } from '../backend-engine/api-integration/api-client.js';
 import {
   HeaderBar,
@@ -15,12 +16,13 @@ import {
 /**
  * WholesaleHome (Smart Container Component)
  * STRICT ROLE:
- *   1. Automatically fetches project lists and B2B products from /backend-engine/api-integration
+ *   1. Automatically fetches project lists, B2B products & Stitch project from /backend-engine/api-integration
  *   2. Manages business user profile and state
  *   3. Passes dynamic props down into dumb Stitch AI presentation components
  */
 export default function WholesaleHome({ onSwitchToRetail }) {
   const [user, setUser] = useState(null);
+  const [stitchProject, setStitchProject] = useState(null);
   const [projects, setProjects] = useState([]);
   const [wholesaleProducts, setWholesaleProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -33,16 +35,18 @@ export default function WholesaleHome({ onSwitchToRetail }) {
     async function loadWholesaleData() {
       try {
         setLoading(true);
-        const [userData, projectData, catalogData] = await Promise.all([
+        const [userData, projectData, catalogData, stitchData] = await Promise.all([
           fetchUserDetails('current'),
           fetchProjectList(),
           fetchProductCatalog({ mode: 'wholesale' }),
+          fetchStitchProjectDetails('e engine'),
         ]);
 
         if (isMounted) {
           setUser(userData);
           setProjects(projectData || []);
           setWholesaleProducts(catalogData || []);
+          setStitchProject(stitchData || null);
           setError(null);
         }
       } catch (err) {
@@ -168,6 +172,35 @@ export default function WholesaleHome({ onSwitchToRetail }) {
 
       {!loading && !error && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+          {/* Stitch MCP Server Status Banner */}
+          {stitchProject && (
+            <div
+              style={{
+                padding: '1rem 1.25rem',
+                backgroundColor: '#0f172a',
+                borderRadius: '12px',
+                color: '#f8fafc',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                boxShadow: '0 4px 14px rgba(15, 23, 42, 0.15)',
+              }}
+            >
+              <div>
+                <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#10b981', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                  <span>●</span> STITCH MCP SERVER CONNECTED
+                </div>
+                <h4 style={{ margin: '0.25rem 0 0', fontSize: '1rem', fontWeight: 700 }}>
+                  Active Project: &quot;{stitchProject.projectName}&quot;
+                </h4>
+                <p style={{ margin: '0.2rem 0 0', fontSize: '0.8rem', color: '#94a3b8' }}>
+                  Design System: {stitchProject.designSystem?.name} • Pipeline Ready
+                </p>
+              </div>
+              <span style={{ fontSize: '1.5rem' }}>✨</span>
+            </div>
+          )}
+
           {/* Active Projects Section */}
           <section>
             <div style={{ marginBottom: '1rem' }}>

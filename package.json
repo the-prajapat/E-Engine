@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "test": "node --check src/ui-ux-design/theme.config.js src/ui-ux-design/components/index.js src/ui-ux-design/index.js src/backend-engine/api-integration/api-client.js src/backend-engine/api-integration/index.js src/pages/index.js src/core-config/app-settings.js src/core-config/feature-flags.js src/filters-and-routing/role-router.js src/filters-and-routing/app-navigation.js src/index.js"
+    "test": "node --check engine/mcp-config.js engine/api-client.js src/ui-ux-design/theme.config.js src/ui-ux-design/components/index.js src/ui-ux-design/index.js src/backend-engine/api-integration/api-client.js src/backend-engine/api-integration/index.js src/pages/index.js src/core-config/app-settings.js src/core-config/feature-flags.js src/filters-and-routing/role-router.js src/filters-and-routing/app-navigation.js src/index.js"
   },
   "dependencies": {
     "react": "^19.3.0",

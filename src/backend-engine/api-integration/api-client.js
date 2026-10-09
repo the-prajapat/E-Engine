@@ -6,6 +6,9 @@
  * No UI components or JSX allowed in this module.
  */
 
+// Re-export Stitch MCP server client & project fetchers
+export * from '../../../engine/api-client.js';
+
 // Configurable MCB Base API URL
 const MCB_BASE_URL =
   (typeof process !== 'undefined' && process.env?.VITE_MCB_API_URL) ||
