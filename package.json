@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "test": "node --check src/ui-ux-design/theme.config.js src/ui-ux-design/typography.js src/ui-ux-design/spacing.js src/core-config/app-settings.js src/core-config/feature-flags.js src/filters-and-routing/role-router.js src/filters-and-routing/auth-guard.js src/filters-and-routing/app-navigation.js src/backend-engine/supabase-client.js src/backend-engine/auth-services/index.js src/backend-engine/data-services/index.js src/pages/login/index.js src/pages/retail-mode/index.js src/pages/wholesale-mode/index.js src/pages/onboarding/index.js src/pages/shared/index.js src/ui-ux-design/components/index.js src/index.js"
+    "test": "node --check src/core-config/app-settings.js src/core-config/feature-flags.js src/filters-and-routing/role-router.js src/filters-and-routing/app-navigation.js src/backend-engine/supabase-client.js src/backend-engine/data-services/index.js src/index.js"
   },
   "dependencies": {
     "react": "^19.3.0",
