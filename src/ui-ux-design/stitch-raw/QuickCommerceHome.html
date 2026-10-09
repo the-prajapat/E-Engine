@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-surface-variant":"#3e4a40","on-secondary-container":"#715d00","surface-dim":"#d6dbd6","on-tertiary-fixed-variant":"#003ea8","tertiary-fixed":"#dbe1ff","secondary-fixed-dim":"#e9c31a","inverse-primary":"#75db94","tertiary-fixed-dim":"#b4c5ff","tertiary-container":"#2d68f0","surface-container":"#eaefea","outline-variant":"#becabd","primary-fixed":"#91f8ae","on-tertiary-fixed":"#00174b","primary-container":"#0c8346","inverse-on-surface":"#edf2ec","surface-container-low":"#f0f5ef","tertiary":"#004ed0","on-background":"#181d1a","inverse-surface":"#2c322e","on-surface":"#181d1a","on-primary":"#ffffff","surface-container-highest":"#dfe4de","on-primary-container":"#e5ffe6","surface-container-lowest":"#ffffff","on-tertiary":"#ffffff","outline":"#6e7a6f","on-error":"#ffffff","surface-variant":"#dfe4de","on-secondary-fixed":"#221b00","surface-container-high":"#e5e9e4","on-tertiary-container":"#f8f7ff","error-container":"#ffdad6","on-secondary":"#ffffff","error":"#ba1a1a","surface-bright":"#f6fbf5","secondary-container":"#fed733","background":"#f6fbf5","surface":"#f6fbf5","surface-tint":"#006d38","primary":"#006835","primary-fixed-dim":"#75db94","on-primary-fixed-variant":"#005229","secondary-fixed":"#ffe175","on-error-container":"#93000a","on-primary-fixed":"#00210d","secondary":"#715d00","on-secondary-fixed-variant":"#554500"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin":"1rem","space-xl":"1.5rem","space-lg":"1rem","space-sm":"0.5rem","gutter-desktop":"1.25rem","space-md":"0.75rem","gutter":"0.75rem","margin-desktop":"2rem","space-xs":"0.25rem"},"fontFamily":{"body-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"price-strike":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"price-display":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"label-action":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"label-badge":["Plus Jakarta Sans"]},"fontSize":{"body-md":["14px",{"lineHeight":"20px","letterSpacing":"-0.005em","fontWeight":"500"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0em","fontWeight":"500"}],"price-strike":["13px",{"lineHeight":"16px","letterSpacing":"0em","fontWeight":"500"}],"headline-xl":["36px",{"lineHeight":"44px","letterSpacing":"-0.03em","fontWeight":"800"}],"headline-xl-mobile":["28px",{"lineHeight":"34px","letterSpacing":"-0.02em","fontWeight":"800"}],"price-display":["18px",{"lineHeight":"22px","letterSpacing":"-0.01em","fontWeight":"800"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-action":["13px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"700"}],"headline-sm":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"700"}],"label-badge":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"800"}]}}}};</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;min-height:100%;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface font-body-md text-body-md flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0 flex-1"><div class="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-primary text-[20px]">bolt</span></div><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-xs"><span class="font-label-badge text-label-badge bg-secondary-container text-on-secondary-fixed px-space-xs py-0.5 rounded-full uppercase tracking-wider">10 MINS</span><span class="font-headline-sm text-headline-sm text-on-surface truncate">Home</span></div><span class="font-body-sm text-body-sm text-on-surface-variant truncate">B-Block, Green Avenue, Metro Sector</span></div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-surface"><div class="flex flex-col w-full gap-space-lg px-margin pb-6">
+<!-- Micro Delivery Context & Address Strip -->
+<div class="flex items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-space-xs min-w-0 flex-1">
+<div class="w-8 h-8 rounded-full bg-primary-container/10 flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-on-surface-variant font-bold">Deliver to</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">expand_more</span>
+</div>
+<span class="font-body-sm text-body-sm font-bold text-on-surface truncate">Home - 42 Elm Street, Brooklyn, NY</span>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-secondary-container px-space-sm py-1 rounded-full shadow-sm shrink-0">
+<span class="material-symbols-outlined text-on-secondary-fixed text-[15px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-label-badge text-label-badge text-on-secondary-fixed font-black tracking-tight">10 MINS</span>
+</div>
+</div>
+<!-- Search Bar with Micro-interactions -->
+<div class="relative w-full">
+<div class="w-full h-12 bg-surface-container-lowest rounded-full shadow-md flex items-center px-space-md gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px]">search</span>
+<input class="w-full bg-transparent font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/60 focus:outline-none" placeholder='Search "fresh milk, avocados, chips..."' type="text"/>
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center shrink-0 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary text-[19px]">mic</span>
+</div>
+</div>
+</div>
+<!-- Instant Express Promo Carousel / Stories Strip -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">Explore Aisles</span>
+<span class="font-label-action text-label-action text-primary flex items-center gap-0.5">See All <span class="material-symbols-outlined text-[16px]">chevron_right</span></span>
+</div>
+<div class="flex items-center gap-space-sm overflow-x-auto -mr-margin pr-margin pb-1">
+<!-- Category Pill 1 -->
+<div class="flex items-center gap-space-xs bg-primary text-on-primary px-space-md py-2 rounded-full shrink-0 shadow-sm active:scale-95 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span class="font-label-action text-label-action tracking-tight whitespace-nowrap">Superfast 10m</span>
+</div>
+<!-- Category Pill 2 -->
+<div class="flex items-center gap-space-xs bg-surface-container-lowest text-on-surface px-space-md py-2 rounded-full shrink-0 shadow-sm active:scale-95 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-primary text-[18px]">local_convenience_store</span>
+<span class="font-label-action text-label-action whitespace-nowrap">Daily Essentials</span>
+</div>
+<!-- Category Pill 3 -->
+<div class="flex items-center gap-space-xs bg-surface-container-lowest text-on-surface px-space-md py-2 rounded-full shrink-0 shadow-sm active:scale-95 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-primary text-[18px]">nutrition</span>
+<span class="font-label-action text-label-action whitespace-nowrap">Fresh Produce</span>
+</div>
+<!-- Category Pill 4 -->
+<div class="flex items-center gap-space-xs bg-surface-container-lowest text-on-surface px-space-md py-2 rounded-full shrink-0 shadow-sm active:scale-95 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-primary text-[18px]">cookie</span>
+<span class="font-label-action text-label-action whitespace-nowrap">Snacks &amp; Munchies</span>
+</div>
+<!-- Category Pill 5 -->
+<div class="flex items-center gap-space-xs bg-surface-container-lowest text-on-surface px-space-md py-2 rounded-full shrink-0 shadow-sm active:scale-95 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-primary text-[18px]">egg</span>
+<span class="font-label-action text-label-action whitespace-nowrap">Dairy &amp; Breakfast</span>
+</div>
+</div>
+</div>
+<!-- Promotional Delight Banner -->
+<div class="relative w-full rounded-2xl bg-gradient-to-r from-primary via-primary-container to-primary p-space-md text-on-primary shadow-md overflow-hidden flex items-center justify-between">
+<div class="flex flex-col z-10 max-w-[65%]">
+<div class="inline-flex items-center gap-1 bg-secondary-container text-on-secondary-fixed rounded-full px-2 py-0.5 w-fit mb-1 shadow-sm">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-badge text-label-badge font-black uppercase tracking-wider">Flash Sale</span>
+</div>
+<span class="font-headline-sm text-headline-sm leading-tight text-on-primary">Up to 40% OFF</span>
+<span class="font-body-sm text-body-sm text-on-primary-container mt-0.5">Morning farm harvest arrives in minutes</span>
+</div>
+<div class="w-20 h-20 rounded-xl overflow-hidden shrink-0 shadow-sm bg-surface-container-lowest/15">
+<img class="w-full h-full object-cover" data-alt="High resolution commercial studio still life of a fresh produce box containing crisp green lettuce, ripe red tomatoes, and lemons with warm lighting and subtle water droplets on a clean surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd9YWYtwOza-0ZrufFzwj-CyaJYZz-vhbsByKXcvbFgLIa0SKJoE_--TR6tuukfwgfU_ekaxSncuxtsokU0fTHJM52K_sFEJY99EZ7GVu0aCKLgWq5pdJ7KtjKXvPO2R81utTVwUPa06HdrpDIeMJDB0pWI7XcbTudVLJuSLh26-25tvKkUOY0DTH-8RTEwQyjwKJ4Nz2QAfediRloCzF13D7mW2rK-Uer3P_IVCME60QsJTh8s3NV"/>
+</div>
+</div>
+<!-- Grocery Product Cards 2-Column Grid -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">Trending in Brooklyn</span>
+<span class="bg-secondary-fixed text-on-secondary-fixed text-label-badge font-label-badge px-1.5 py-0.5 rounded-full font-black">POPULAR</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-bold">6 items</span>
+</div>
+<div class="grid grid-cols-2 gap-gutter">
+<!-- Product Card 1: Fresh Hass Avocados -->
+<div class="flex flex-col bg-surface-container-lowest rounded-2xl p-space-sm shadow-md justify-between gap-space-xs relative">
+<div class="relative w-full aspect-square bg-surface-container-low rounded-xl overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="Two ripe Hass avocados, one sliced in half showing perfect creamy lime-green flesh and round pit, clean bright studio product shot on isolated soft background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCayV23h4haFrhmOZwmsLlrcbHULr27k3IYzAdNRafGUWsqhX3zT4Cnmwxd89N88Rj12csRvAh13NZSl9E4TLCJDmS8kAN2Zp5ea-BVhqJEqODStkWQLeDu1jnweozNTFmB6HaWigfVmC5wbuwmLem3LMtieUJuT5HeMLSCBdMp4mcfexVitUsTcUaQszt3W1VAOBPSCJiYzOp69y0AoSPnLM8W7FPZ-nfyanY9BRrDQ6DMZ55cA9kG"/>
+<span class="absolute top-1.5 left-1.5 bg-secondary-container text-on-secondary-fixed font-label-badge text-label-badge px-2 py-0.5 rounded-full shadow-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">timer</span>
+            8-12 mins
+          </span>
+<span class="absolute top-1.5 right-1.5 bg-primary-container text-on-primary font-label-badge text-label-badge px-1.5 py-0.5 rounded-full shadow-sm font-black">
+            17% OFF
+          </span>
+</div>
+<div class="flex flex-col min-w-0 mt-1">
+<span class="font-body-md text-body-md font-bold text-on-surface line-clamp-1">Fresh Hass Avocados</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pack of 2</span>
+</div>
+<div class="flex items-end justify-between gap-1 pt-1">
+<div class="flex flex-col">
+<span class="font-price-strike text-price-strike line-through text-outline">$4.20</span>
+<span class="font-price-display text-price-display text-primary leading-tight">$3.49</span>
+</div>
+<!-- Quantity Stepper -->
+<div class="flex items-center bg-primary text-on-primary rounded-full px-1 py-1 shadow-md shrink-0 select-none">
+<button aria-label="Decrease quantity" class="stepper-btn stepper-dec w-6 h-6 rounded-full flex items-center justify-center active:scale-75 transition-transform" type="button">
+<span class="material-symbols-outlined text-[16px] font-black">remove</span>
+</button>
+<span class="stepper-count font-label-action text-label-action px-2 text-on-primary min-w-[18px] text-center">1</span>
+<button aria-label="Increase quantity" class="stepper-btn stepper-inc w-6 h-6 rounded-full flex items-center justify-center active:scale-75 transition-transform" type="button">
+<span class="material-symbols-outlined text-[16px] font-black">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2: Organic Whole Milk -->
+<div class="flex flex-col bg-surface-container-lowest rounded-2xl p-space-sm shadow-md justify-between gap-space-xs relative">
+<div class="relative w-full aspect-square bg-surface-container-low rounded-xl overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="Chilled organic whole milk in a glass bottle jug with a clean label, surrounded by a subtle splash of fresh milk on high-key crisp lighting studio setup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWRB5N1QPgQyaycQMuepScdoebBcN4eGa9jx02CIWuF2XhtiaQ0Kc4GqzlqBhwdyoK51mz-V524e3AIQwAE2G0uwNDRg1ie61zjf7iMqE7V2F-oQkn8iIqnAHkFQ5EypJjClZX3O_ztzfEDdtkpeKALXlwg5upjJ-NTUpnZ9gytGbBCszY0XNvX7ntPmLMteTsVC-uVgQEmRh1bRAuWSZTssmJU4RGhuFONHdNJYgIUhjUxwQ9kH1O"/>
+<span class="absolute top-1.5 left-1.5 bg-secondary-container text-on-secondary-fixed font-label-badge text-label-badge px-2 py-0.5 rounded-full shadow-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">timer</span>
+            10 mins
+          </span>
+</div>
+<div class="flex flex-col min-w-0 mt-1">
+<span class="font-body-md text-body-md font-bold text-on-surface line-clamp-1">Organic Whole Milk</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">1 Gallon, 3.8L</span>
+</div>
+<div class="flex items-end justify-between gap-1 pt-1">
+<div class="flex flex-col">
+<span class="font-price-strike text-price-strike text-transparent select-none"> </span>
+<span class="font-price-display text-price-display text-primary leading-tight">$4.19</span>
+</div>
+<!-- Quantity Stepper -->
+<div class="flex items-center bg-primary text-on-primary rounded-full px-1 py-1 shadow-md shrink-0 select-none">
+<button aria-label="Decrease quantity" class="stepper-btn stepper-dec w-6 h-6 rounded-full flex items-center justify-center active:scale-75 transition-transform" type="button">
+<span class="material-symbols-outlined text-[16px] font-black">remove</span>
+</button>
+<span class="stepper-count font-label-action text-label-action px-2 text-on-primary min-w-[18px] text-center">1</span>
+<button aria-label="Increase quantity" class="stepper-btn stepper-inc w-6 h-6 rounded-full flex items-center justify-center active:scale-75 transition-transform" type="button">
+<span class="material-symbols-outlined text-[16px] font-black">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3: Ripe Roma Tomatoes -->
+<div class="flex flex-col bg-surface-container-lowest rounded-2xl p-space-sm shadow-md justify-between gap-space-xs relative">
+<div class="relative w-full aspect-square bg-surface-container-low rounded-xl overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="Vibrant cluster of ripe red Roma plum tomatoes on the vine with green calyx and dewy water droplets, high detail natural grocery catalog photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJDbve-cyqIKxdSQD06y5jmE-lfQDZ5tARZs7OBr9Rij1bQ40uljUMYPKen5Q_w9gY3E-9Lssmusil0t2tiyLlavxEKtDmSvz0u9ktYJhMaK-5LAHs-erCeCKryrYa_jP74pYhUkuBdYe-226v7I5R26IFg8J-g5WVHw2RnskxP7tmgvdBAUp41e78m5XxyGqvfXKOmNHjBdTHpOwa6FE7UlOnv8x3u1hc8ffYK_sKb8A_MgTXSN_c"/>
+<span class="absolute top-1.5 left-1.5 bg-secondary-container text-on-secondary-fixed font-label-badge text-label-badge px-2 py-0.5 rounded-full shadow-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">timer</span>
+            10 MINS
+          </span>
+</div>
+<div class="flex flex-col min-w-0 mt-1">
+<span class="font-body-md text-body-md font-bold text-on-surface line-clamp-1">Ripe Roma Tomatoes</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">500g</span>
+</div>
+<div class="flex items-end justify-between gap-1 pt-1">
+<div class="flex flex-col">
+<span class="font-price-strike text-price-strike line-through text-outline">$2.30</span>
+<span class="font-price-display text-price-display text-primary leading-tight">$1.89</span>
+</div>
+<!-- Quantity Stepper -->
+<div class="flex items-center bg-primary text-on-primary rounded-full px-1 py-1 shadow-md shrink-0 select-none">
+<button aria-label="Decrease quantity" class="stepper-btn stepper-dec w-6 h-6 rounded-full flex items-center justify-center active:scale-75 transition-transform" type="button">
+<span class="material-symbols-outlined text-[16px] font-black">remove</span>
+</button>
+<span class="stepper-count font-label-action text-label-action px-2 text-on-primary min-w-[18px] text-center">1</span>
+<button aria-label="Increase quantity" class="stepper-btn stepper-inc w-6 h-6 rounded-full flex items-center justify-center active:scale-75 transition-transform" type="button">
+<span class="material-symbols-outlined text-[16px] font-black">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 4: Artisan Sourdough Loaf -->
+<div class="flex flex-col bg-surface-container-lowest rounded-2xl p-space-sm shadow-md justify-between gap-space-xs relative">
+<div class="relative w-full aspect-square bg-surface-container-low rounded-xl overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="Crusty freshly baked golden sourdough bread loaf with flour dusted scoring on top, rustic bakery lighting with warm appetizing tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpS_jX1womAhYD9_1Pr9Og-Abpm9p3adQiI2v8Yq6schlnZC3PEIOVeFgDS1gTjQrqJUlRdnW6I_G4cxHdfkn53i6gvS-l3SyO_2VzirY3EV9tnR88KNqUH2Xc_ehQXwJcJcyn-M1G_dwT7GmjywcqxrCMh01iZ28MsThEpZ9MXGaZSCmzNV0pv3MBDxiZHWaITqvwQBfHic3KLDzfvUn8yUS52c-031feYRDBiJLravylPoWu1i3U"/>
+<span class="absolute top-1.5 left-1.5 bg-secondary-container text-on-secondary-fixed font-label-badge text-label-badge px-2 py-0.5 rounded-full shadow-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">timer</span>
+            8-12 mins
+          </span>
+<span class="absolute top-1.5 right-1.5 bg-secondary-container text-on-secondary-fixed font-label-badge text-label-badge px-1.5 py-0.5 rounded-full shadow-sm font-black">
+            BAKED TODAY
+          </span>
+</div>
+<div class="flex flex-col min-w-0 mt-1">
+<span class="font-body-md text-body-md font-bold text-on-surface line-clamp-1">Artisan Sourdough Loaf</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Freshly baked</span>
+</div>
+<div class="flex items-end justify-between gap-1 pt-1">
+<div class="flex flex-col">
+<span class="font-price-strike text-price-strike text-transparent select-none"> </span>
+<span class="font-price-display text-price-display text-primary leading-tight">$3.99</span>
+</div>
+<!-- Quantity Stepper -->
+<div class="flex items-center bg-primary text-on-primary rounded-full px-1 py-1 shadow-md shrink-0 select-none">
+<button aria-label="Decrease quantity" class="stepper-btn stepper-dec w-6 h-6 rounded-full flex items-center justify-center active:scale-75 transition-transform" type="button">
+<span class="material-symbols-outlined text-[16px] font-black">remove</span>
+</button>
+<span class="stepper-count font-label-action text-label-action px-2 text-on-primary min-w-[18px] text-center">1</span>
+<button aria-label="Increase quantity" class="stepper-btn stepper-inc w-6 h-6 rounded-full flex items-center justify-center active:scale-75 transition-transform" type="button">
+<span class="material-symbols-outlined text-[16px] font-black">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 5: Farm Fresh Grade-A Eggs -->
+<div class="flex flex-col bg-surface-container-lowest rounded-2xl p-space-sm shadow-md justify-between gap-space-xs relative">
+<div class="relative w-full aspect-square bg-surface-container-low rounded-xl overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="Brown farm-fresh organic eggs nestled in an open molded pulp carton, clean kitchen lighting highlighting the natural shell texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs17_6ae9HPqlj3fS7bQ1-xwbbncqFUoMqAnvRBhoZJjbM76_q_ZiXUQcT4VohP3GpNzGwMs38AE96Rtm7Ta2wPYFno0aQqqIneoCa90uIjNZVlYmxscDnQvna4eCRxagsxc4oLXZ4jRgcsJcaZnjZ0N3rQI3gV5wY9Xm6AFC-KpA0sMQPnN4Gbc9fD8oE-lCG-qeRcKzuU8za55kuxy6vcFOdhpmEBicw5fA1wpeGOdg9-tRcAGxU"/>
+<span class="absolute top-1.5 left-1.5 bg-secondary-container text-on-secondary-fixed font-label-badge text-label-badge px-2 py-0.5 rounded-full shadow-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">timer</span>
+            10 mins
+          </span>
+</div>
+<div class="flex flex-col min-w-0 mt-1">
+<span class="font-body-md text-body-md font-bold text-on-surface line-clamp-1">Farm Fresh Grade-A Eggs</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">12 count</span>
+</div>
+<div class="flex items-end justify-between gap-1 pt-1">
+<div class="flex flex-col">
+<span class="font-price-strike text-price-strike text-transparent select-none"> </span>
+<span class="font-price-display text-price-display text-primary leading-tight">$4.49</span>
+</div>
+<!-- Quantity Stepper -->
+<div class="flex items-center bg-primary text-on-primary rounded-full px-1 py-1 shadow-md shrink-0 select-none">
+<button aria-label="Decrease quantity" class="stepper-btn stepper-dec w-6 h-6 rounded-full flex items-center justify-center active:scale-75 transition-transform" type="button">
+<span class="material-symbols-outlined text-[16px] font-black">remove</span>
+</button>
+<span class="stepper-count font-label-action text-label-action px-2 text-on-primary min-w-[18px] text-center">1</span>
+<button aria-label="Increase quantity" class="stepper-btn stepper-inc w-6 h-6 rounded-full flex items-center justify-center active:scale-75 transition-transform" type="button">
+<span class="material-symbols-outlined text-[16px] font-black">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 6: Greek Style Plain Yogurt -->
+<div class="flex flex-col bg-surface-container-lowest rounded-2xl p-space-sm shadow-md justify-between gap-space-xs relative">
+<div class="relative w-full aspect-square bg-surface-container-low rounded-xl overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="Chilled tub of Greek style authentic whole milk plain yogurt with a clean blue and white aesthetic, beside a ceramic bowl with creamy spoonful, studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8Rhjj2pMkBa1bFZeyRn1o8j5cFDCguw4bmREVmNiqfarhpGczyRHvBctTGrsK0PyCpSDS45N2BD1CGO-1Mg4Mccq-BOSY0Ee0tfl3FnKi-N5PDK4qQzp1m15K3YLou5BeSa6dTep3J7bF1Y4X49r0DvBjG1yWfTkCKHlmgJI64oxs1MI-0qqQYCvcjiMCYjBeQ_--VU1jEFqAdFPLAGCPsirVHjlEuVa4W4EgqasOUrDQeq77gsuW"/>
+<span class="absolute top-1.5 left-1.5 bg-secondary-container text-on-secondary-fixed font-label-badge text-label-badge px-2 py-0.5 rounded-full shadow-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">timer</span>
+            9 mins
+          </span>
+</div>
+<div class="flex flex-col min-w-0 mt-1">
+<span class="font-body-md text-body-md font-bold text-on-surface line-clamp-1">Greek Style Plain Yogurt</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">450g</span>
+</div>
+<div class="flex items-end justify-between gap-1 pt-1">
+<div class="flex flex-col">
+<span class="font-price-strike text-price-strike line-through text-outline">$3.49</span>
+<span class="font-price-display text-price-display text-primary leading-tight">$2.99</span>
+</div>
+<!-- Quantity Stepper -->
+<div class="flex items-center bg-primary text-on-primary rounded-full px-1 py-1 shadow-md shrink-0 select-none">
+<button aria-label="Decrease quantity" class="stepper-btn stepper-dec w-6 h-6 rounded-full flex items-center justify-center active:scale-75 transition-transform" type="button">
+<span class="material-symbols-outlined text-[16px] font-black">remove</span>
+</button>
+<span class="stepper-count font-label-action text-label-action px-2 text-on-primary min-w-[18px] text-center">1</span>
+<button aria-label="Increase quantity" class="stepper-btn stepper-inc w-6 h-6 rounded-full flex items-center justify-center active:scale-75 transition-transform" type="button">
+<span class="material-symbols-outlined text-[16px] font-black">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Trust & Lightning Delivery Assurance Card -->
+<div class="rounded-2xl bg-surface-container p-space-md flex items-center gap-space-md shadow-sm">
+<div class="w-12 h-12 rounded-xl bg-primary-container text-on-primary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[28px]">electric_moped</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface">Hyperlocal Dark Stores</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Dispatched within 120 seconds from Fulton Market, Brooklyn Hub.</span>
+</div>
+</div>
+<!-- Interactive JavaScript for Live Steppers -->
+<script>
+    document.querySelectorAll('.stepper-inc').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const countSpan = btn.parentElement.querySelector('.stepper-count');
+        let count = parseInt(countSpan.textContent, 10) || 0;
+        count++;
+        countSpan.textContent = count;
+      });
+    });
+
+    document.querySelectorAll('.stepper-dec').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const countSpan = btn.parentElement.querySelector('.stepper-count');
+        let count = parseInt(countSpan.textContent, 10) || 0;
+        if (count > 1) {
+          count--;
+          countSpan.textContent = count;
+        }
+      });
+    });
+  </script>
+</div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-4px_16px_rgba(18,23,20,0.06)]" data-active-classes="text-primary font-bold"><div class="flex items-center justify-around h-16 px-space-sm"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 transition-colors text-primary font-bold" data-path="home" href="#"><span class="material-symbols-outlined text-[24px]">home</span><span class="font-label-action text-label-action">Home</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="categories" href="#"><span class="material-symbols-outlined text-[24px]">grid_view</span><span class="font-label-action text-label-action">Categories</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors relative" data-path="cart" href="#"><div class="relative flex items-center justify-center"><span class="material-symbols-outlined text-[24px]">shopping_cart</span><span class="absolute -top-1.5 -right-2 bg-secondary-container text-on-secondary-fixed font-label-badge text-label-badge min-w-[18px] h-[18px] px-1 rounded-full flex items-center justify-center leading-none">3</span></div><span class="font-label-action text-label-action">Cart</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="profile" href="#"><span class="material-symbols-outlined text-[24px]">account_circle</span><span class="font-label-action text-label-action">Profile</span></a></div></nav></body></html>
