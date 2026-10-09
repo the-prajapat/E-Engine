@@ -2,14 +2,14 @@ import React from 'react';
 
 /**
  * RetailLayout (Dumb Mobile Presentation Shell)
- * ISSUE 1: Strict mobile container: w-full max-w-md mx-auto min-h-screen bg-neutral-50 relative pb-20 overflow-x-hidden.
+ * Mobile-First & Fully Fluid layout shell with safe-area padding and vertical scrolling.
  */
 export default function RetailLayout({ header, children, footer, banner }) {
   return (
-    <div className="w-full max-w-md mx-auto min-h-screen bg-neutral-50 relative pb-20 overflow-x-hidden flex flex-col select-none">
+    <div className="w-full max-w-md mx-auto min-h-screen bg-neutral-50 relative pb-24 overflow-x-hidden overflow-y-auto flex flex-col select-none">
       {header}
-      {banner && <div className="px-3.5 pt-2.5">{banner}</div>}
-      <main className="flex-1 px-3.5 py-3 w-full">{children}</main>
+      {banner && <div className="px-4 sm:px-5 pt-2.5">{banner}</div>}
+      <main className="flex-1 px-4 sm:px-5 py-3 w-full flex flex-col gap-3">{children}</main>
       {footer}
     </div>
   );

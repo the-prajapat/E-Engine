@@ -2,7 +2,7 @@ import React from 'react';
 
 /**
  * TopLocationBar (Dumb Presentation Component)
- * Normalized Blinkit/Zepto-style Quick Commerce Header with 44px tap targets.
+ * Mobile-first fluid location header with safe-area padding and 44px tap targets.
  *
  * @param {Object} props
  * @param {string} [props.address="Civil Lines, Metro Hub, Jaipur"]
@@ -17,8 +17,8 @@ export default function TopLocationBar({
   onProfileClick,
 }) {
   return (
-    <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm px-4 py-2.5">
-      <div className="flex items-center justify-between gap-3">
+    <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm px-4 sm:px-5 py-2.5">
+      <div className="flex items-center justify-between gap-2.5">
         {/* Delivery Location Section */}
         <button
           onClick={onSelectAddress}
@@ -57,7 +57,7 @@ export default function TopLocationBar({
           onClick={onProfileClick}
           type="button"
           aria-label="User Profile"
-          className="w-11 h-11 flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 shrink-0 transition-colors active:scale-95"
+          className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 shrink-0 transition-colors active:scale-95"
         >
           <span className="material-symbols-outlined text-[20px]">
             person

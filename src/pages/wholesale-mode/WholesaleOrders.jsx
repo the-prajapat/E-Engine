@@ -11,7 +11,6 @@ const B2B_ORDERS = [
     status: 'In Transit',
     statusColor: 'text-blue-700 bg-blue-50 border-blue-200',
     ewayBill: 'EWB-8921-9921',
-    steps: ['PO Issued', 'Proforma Approved', 'In Transit', 'Delivery Due Oct 12'],
   },
   {
     poNumber: 'PO-2026-0744',
@@ -23,19 +22,18 @@ const B2B_ORDERS = [
     status: 'Delivered',
     statusColor: 'text-emerald-700 bg-emerald-50 border-emerald-200',
     ewayBill: 'EWB-7102-3341',
-    steps: ['PO Issued', 'Proforma Approved', 'Dispatched', 'Delivered at Jaipur Hub'],
   },
 ];
 
 /**
  * WholesaleOrders (Smart Container Page)
- * ISSUE 5: Wholesale Orders Tab with PO tracker, status stages, and e-invoice actions.
+ * Fully fluid, mobile-first B2B Orders tracking with safe padding and 44px+ controls.
  */
 export default function WholesaleOrders() {
   return (
-    <div className="w-full flex flex-col pb-24 select-none">
+    <div className="w-full flex-1 flex flex-col gap-3 pb-28 select-none overflow-y-auto">
       {/* ─── Header ──────────────────────────────────────────────────── */}
-      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 px-4 py-3 shadow-xs">
+      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 px-4 sm:px-5 py-3 shadow-xs">
         <h1 className="text-base font-extrabold text-slate-900 tracking-tight">
           B2B Purchase Orders
         </h1>
@@ -45,19 +43,19 @@ export default function WholesaleOrders() {
       </header>
 
       {/* ─── Orders List ─────────────────────────────────────────────── */}
-      <div className="px-4 py-3 flex flex-col gap-3.5">
+      <div className="px-4 sm:px-5 flex flex-col gap-3.5">
         {B2B_ORDERS.map((order) => (
           <div
             key={order.poNumber}
-            className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-xs flex flex-col gap-3"
+            className="w-full bg-white rounded-2xl border border-slate-200/80 p-4 shadow-xs flex flex-col gap-3"
           >
             {/* Header */}
             <div className="flex items-start justify-between gap-2">
-              <div>
+              <div className="min-w-0 flex-1">
                 <span className="text-[11px] font-extrabold text-blue-700">
                   {order.poNumber}
                 </span>
-                <h3 className="text-xs font-bold text-slate-900 mt-0.5">
+                <h3 className="text-xs font-bold text-slate-900 mt-0.5 truncate">
                   {order.vendor}
                 </h3>
                 <span className="text-[10px] text-slate-400 font-medium">
@@ -66,18 +64,18 @@ export default function WholesaleOrders() {
               </div>
 
               <span
-                className={`text-[11px] font-bold px-2 py-0.5 rounded-full border ${order.statusColor}`}
+                className={`text-[11px] font-bold px-2 py-0.5 rounded-full border shrink-0 ${order.statusColor}`}
               >
                 ● {order.status}
               </span>
             </div>
 
             {/* Item Details */}
-            <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 text-xs">
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 text-xs flex flex-col gap-1">
               <span className="font-bold text-slate-800 block truncate">
                 {order.items}
               </span>
-              <div className="flex justify-between items-center mt-1 text-[11px]">
+              <div className="flex justify-between items-center text-[11px]">
                 <span className="text-slate-500">Quantity: {order.qty}</span>
                 <span className="font-extrabold text-blue-900">
                   ₹{order.amount.toLocaleString('en-IN')}
@@ -98,7 +96,7 @@ export default function WholesaleOrders() {
                 <span className="material-symbols-outlined text-[13px]" style={{ fontVariationSettings: "'FILL' 1" }}>
                   check_circle
                 </span>
-                Proforma Approved
+                Approved
               </span>
               <span className="text-slate-300">→</span>
               <span className={order.status === 'Delivered' ? 'text-emerald-700' : 'text-blue-700'}>
@@ -108,19 +106,19 @@ export default function WholesaleOrders() {
 
             {/* E-Invoice Actions */}
             <div className="pt-2 border-t border-slate-100 flex items-center justify-between gap-2">
-              <div className="flex items-center gap-1 text-[11px] text-slate-500 font-medium">
-                <span className="material-symbols-outlined text-[16px] text-slate-400">
+              <div className="flex items-center gap-1 text-[11px] text-slate-500 font-medium truncate">
+                <span className="material-symbols-outlined text-[16px] text-slate-400 shrink-0">
                   description
                 </span>
-                <span>{order.ewayBill}</span>
+                <span className="truncate">{order.ewayBill}</span>
               </div>
 
               <button
                 onClick={() => alert(`Downloading GST Tax Invoice for ${order.poNumber}`)}
                 type="button"
-                className="min-h-[40px] px-3 bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-800 text-[11px] font-bold rounded-xl transition-all active:scale-95 flex items-center gap-1"
+                className="min-h-[44px] px-3.5 bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-800 text-[11px] font-bold rounded-xl transition-all active:scale-95 flex items-center gap-1.5 shrink-0"
               >
-                <span className="material-symbols-outlined text-[15px]">download</span>
+                <span className="material-symbols-outlined text-[16px]">download</span>
                 <span>Tax Invoice</span>
               </button>
             </div>

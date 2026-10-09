@@ -3,8 +3,7 @@ import { QuantityStepper } from '../../ui-ux-design/index.js';
 
 /**
  * RetailCart (Smart Container Page)
- * ISSUE 1, 2, 5: Interactive Cart screen with Indian Rupee (₹) breakdown,
- * free delivery meter, 44px tap targets, and checkout flow.
+ * Fully fluid, mobile-first Cart with Rupee (₹) breakdown, free delivery progress, and 44px+ controls.
  */
 export default function RetailCart({
   cartItems = {},
@@ -32,8 +31,8 @@ export default function RetailCart({
 
   if (orderPlaced) {
     return (
-      <div className="w-full flex flex-col items-center justify-center p-6 min-h-[80vh] text-center select-none">
-        <div className="w-20 h-20 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mb-4 animate-bounce">
+      <div className="w-full flex-1 flex flex-col items-center justify-center px-4 sm:px-6 py-8 min-h-[80vh] text-center select-none overflow-y-auto">
+        <div className="w-20 h-20 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mb-4 animate-bounce shrink-0">
           <span className="material-symbols-outlined text-[40px]" style={{ fontVariationSettings: "'FILL' 1" }}>
             check_circle
           </span>
@@ -45,16 +44,16 @@ export default function RetailCart({
           Your hyperlocal 10-minute delivery is being packed at the Civil Lines hub.
         </p>
 
-        <div className="mt-5 p-4 bg-white rounded-2xl border border-slate-200/80 w-full text-left">
-          <div className="flex justify-between text-xs py-1">
+        <div className="mt-5 p-4 bg-white rounded-2xl border border-slate-200/80 w-full text-left flex flex-col gap-2">
+          <div className="flex justify-between text-xs py-0.5">
             <span className="text-slate-500">Order ID:</span>
             <span className="font-bold text-slate-800">#ORD-2026-IN904</span>
           </div>
-          <div className="flex justify-between text-xs py-1">
+          <div className="flex justify-between text-xs py-0.5">
             <span className="text-slate-500">Payment:</span>
             <span className="font-bold text-emerald-700 uppercase">{paymentMethod} (₹{grandTotal.toLocaleString('en-IN')})</span>
           </div>
-          <div className="flex justify-between text-xs py-1">
+          <div className="flex justify-between text-xs py-0.5">
             <span className="text-slate-500">Estimated Delivery:</span>
             <span className="font-bold text-blue-700">⚡ 10 Minutes</span>
           </div>
@@ -66,7 +65,7 @@ export default function RetailCart({
             if (onNavigateTab) onNavigateTab('home');
           }}
           type="button"
-          className="mt-6 w-full min-h-[48px] bg-blue-700 hover:bg-blue-800 text-white font-bold text-xs rounded-xl transition-all shadow-md active:scale-95"
+          className="mt-6 w-full min-h-[48px] bg-blue-700 hover:bg-blue-800 text-white font-bold text-xs rounded-xl transition-all shadow-md active:scale-95 flex items-center justify-center"
         >
           Continue Shopping
         </button>
@@ -75,9 +74,9 @@ export default function RetailCart({
   }
 
   return (
-    <div className="w-full flex flex-col pb-28 select-none">
+    <div className="w-full flex-1 flex flex-col gap-3 pb-28 select-none overflow-y-auto">
       {/* ─── Header ──────────────────────────────────────────────────── */}
-      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 px-4 py-3 shadow-xs flex items-center justify-between">
+      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 px-4 sm:px-5 py-3 shadow-xs flex items-center justify-between">
         <div>
           <h1 className="text-base font-extrabold text-slate-900 tracking-tight">
             Review Cart
@@ -93,28 +92,28 @@ export default function RetailCart({
 
       {/* ─── Empty Cart State ────────────────────────────────────────── */}
       {itemsList.length === 0 ? (
-        <div className="p-8 text-center flex flex-col items-center justify-center min-h-[60vh]">
-          <div className="w-16 h-16 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center mb-3">
+        <div className="px-4 sm:px-6 py-12 text-center flex flex-col items-center justify-center min-h-[60vh] gap-2">
+          <div className="w-16 h-16 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center shrink-0 mb-1">
             <span className="material-symbols-outlined text-[32px]">shopping_bag</span>
           </div>
           <h3 className="text-sm font-bold text-slate-900">Your cart is empty</h3>
-          <p className="text-xs text-slate-500 mt-1 max-w-xs">
+          <p className="text-xs text-slate-500 max-w-xs">
             Explore 10-minute quick-commerce deals and add fresh items to your cart.
           </p>
           <button
             onClick={() => onNavigateTab && onNavigateTab('home')}
             type="button"
-            className="mt-4 min-h-[44px] px-6 bg-blue-700 text-white font-bold text-xs rounded-xl shadow-sm hover:bg-blue-800 active:scale-95 transition-all"
+            className="mt-2 min-h-[44px] px-6 bg-blue-700 text-white font-bold text-xs rounded-xl shadow-xs hover:bg-blue-800 active:scale-95 transition-all flex items-center justify-center"
           >
             Start Shopping
           </button>
         </div>
       ) : (
-        <div className="px-4 py-3 flex flex-col gap-3">
+        <div className="px-4 sm:px-5 flex flex-col gap-3">
           {/* ─── Free Delivery Progress Meter ─────────────────────────── */}
-          <div className="p-3 bg-white rounded-2xl border border-slate-200/80 shadow-xs">
-            <div className="flex items-center justify-between text-xs font-bold mb-1.5">
-              <span className="flex items-center gap-1 text-slate-800">
+          <div className="w-full p-3.5 bg-white rounded-2xl border border-slate-200/80 shadow-xs flex flex-col gap-1.5">
+            <div className="flex items-center justify-between text-xs font-bold">
+              <span className="flex items-center gap-1.5 text-slate-800">
                 <span className="material-symbols-outlined text-emerald-600 text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }}>
                   local_shipping
                 </span>
@@ -131,7 +130,7 @@ export default function RetailCart({
           </div>
 
           {/* ─── Items List ────────────────────────────────────────────── */}
-          <div className="bg-white rounded-2xl border border-slate-200/80 p-3 shadow-xs divide-y divide-slate-100">
+          <div className="w-full bg-white rounded-2xl border border-slate-200/80 p-3 shadow-xs divide-y divide-slate-100 flex flex-col">
             {itemsList.map((item) => (
               <div key={item.id} className="py-2.5 first:pt-0 last:pb-0 flex items-center justify-between gap-3">
                 <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0 overflow-hidden">
@@ -162,18 +161,18 @@ export default function RetailCart({
           </div>
 
           {/* ─── Delivery Location ─────────────────────────────────────── */}
-          <div className="bg-white rounded-2xl border border-slate-200/80 p-3.5 shadow-xs flex items-center justify-between">
-            <div className="flex items-center gap-2.5 min-w-0">
+          <div className="w-full bg-white rounded-2xl border border-slate-200/80 p-3.5 shadow-xs flex items-center justify-between gap-2.5">
+            <div className="flex items-center gap-2.5 min-w-0 flex-1">
               <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0">
                 <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>
                   home_pin
                 </span>
               </div>
-              <div className="min-w-0">
+              <div className="min-w-0 flex-1">
                 <span className="text-xs font-bold text-slate-900 block truncate">
                   Deliver to Civil Lines, Jaipur
                 </span>
-                <span className="text-[10px] text-slate-500">
+                <span className="text-[10px] text-slate-500 block truncate">
                   Flat 402, Metro Enclave • 10 Mins ETA
                 </span>
               </div>
@@ -181,15 +180,15 @@ export default function RetailCart({
             <button
               onClick={() => alert('Change address dialog')}
               type="button"
-              className="text-xs font-bold text-blue-700 hover:text-blue-900 shrink-0 min-h-[44px] flex items-center px-1"
+              className="text-xs font-bold text-blue-700 hover:text-blue-900 shrink-0 min-h-[44px] flex items-center px-2"
             >
               Change
             </button>
           </div>
 
           {/* ─── Bill Breakdown in Rupees (₹) ─────────────────────────── */}
-          <div className="bg-white rounded-2xl border border-slate-200/80 p-3.5 shadow-xs">
-            <h4 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider mb-2">
+          <div className="w-full bg-white rounded-2xl border border-slate-200/80 p-3.5 shadow-xs flex flex-col gap-2">
+            <h4 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">
               Bill Details
             </h4>
             <div className="space-y-1.5 text-xs">
@@ -219,11 +218,11 @@ export default function RetailCart({
           </div>
 
           {/* ─── Payment Method Selection ─────────────────────────────── */}
-          <div className="bg-white rounded-2xl border border-slate-200/80 p-3.5 shadow-xs">
-            <h4 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider mb-2">
+          <div className="w-full bg-white rounded-2xl border border-slate-200/80 p-3.5 shadow-xs flex flex-col gap-2">
+            <h4 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">
               Payment Method
             </h4>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="w-full grid grid-cols-3 gap-2">
               {[
                 { id: 'upi', label: 'UPI / GPay', icon: 'qr_code_2' },
                 { id: 'card', label: 'Debit/Credit', icon: 'credit_card' },
@@ -233,14 +232,14 @@ export default function RetailCart({
                   key={opt.id}
                   onClick={() => setPaymentMethod(opt.id)}
                   type="button"
-                  className={`min-h-[44px] p-2 rounded-xl text-center border text-[11px] font-bold flex flex-col items-center justify-center transition-all ${
+                  className={`w-full min-h-[44px] p-2 rounded-xl text-center border text-[11px] font-bold flex flex-col items-center justify-center transition-all ${
                     paymentMethod === opt.id
-                      ? 'bg-blue-50 text-blue-800 border-blue-600'
+                      ? 'bg-blue-50 text-blue-800 border-blue-600 shadow-xs'
                       : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
                   }`}
                 >
                   <span className="material-symbols-outlined text-[18px]">{opt.icon}</span>
-                  <span className="mt-0.5">{opt.label}</span>
+                  <span className="mt-0.5 truncate max-w-full">{opt.label}</span>
                 </button>
               ))}
             </div>

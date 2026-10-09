@@ -14,8 +14,7 @@ import {
 
 /**
  * WholesaleHome (Smart Container Page)
- * ISSUE 1, 2, 4, 5: B2B Marketplace Hub with dealer cards, MOQ, tiered lot pricing,
- * project portfolio, and zero-loop state safety.
+ * Fully fluid, mobile-first B2B Marketplace Hub with safe-area padding and 44px+ controls.
  */
 export default function WholesaleHome({ onNavigateTab }) {
   const [user, setUser] = useState(null);
@@ -71,7 +70,7 @@ export default function WholesaleHome({ onNavigateTab }) {
   });
 
   return (
-    <div className="w-full flex flex-col pb-24 select-none">
+    <div className="w-full flex-1 flex flex-col gap-3 pb-28 select-none overflow-y-auto">
       {/* ─── Production Header Bar ───────────────────────────────────── */}
       <HeaderBar
         title="B2B Wholesale Hub"
@@ -82,20 +81,20 @@ export default function WholesaleHome({ onNavigateTab }) {
       />
 
       {/* ─── Enterprise Banner ───────────────────────────────────────── */}
-      <div className="px-4 pt-3 pb-1">
-        <div className="bg-slate-900 rounded-2xl p-4 text-white shadow-sm border border-slate-800 relative overflow-hidden">
-          <div className="relative z-10">
-            <div className="inline-flex items-center gap-1.5 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[10px] font-bold px-2 py-0.5 rounded-full mb-1.5">
+      <div className="px-4 sm:px-5">
+        <div className="w-full bg-slate-900 rounded-2xl p-4 text-white shadow-sm border border-slate-800 relative overflow-hidden flex flex-col gap-2.5">
+          <div className="relative z-10 flex flex-col gap-1">
+            <div className="self-start inline-flex items-center gap-1.5 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[10px] font-bold px-2 py-0.5 rounded-full">
               <span>●</span> VERIFIED B2B MERCHANT PORTAL
             </div>
             <h2 className="text-base font-extrabold tracking-tight">
               Direct Manufacturer Lots
             </h2>
-            <p className="text-[11px] text-slate-300 mt-0.5">
+            <p className="text-[11px] text-slate-300">
               Minimum Order Quantities (MOQ) with automated GST Input Invoicing
             </p>
           </div>
-          <div className="mt-3 pt-2.5 border-t border-slate-800 flex items-center justify-between text-[11px]">
+          <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-[11px]">
             <span className="text-slate-400">Credit Line Available:</span>
             <span className="font-extrabold text-emerald-400">₹3,45,000 / ₹5,00,000</span>
           </div>
@@ -103,7 +102,7 @@ export default function WholesaleHome({ onNavigateTab }) {
       </div>
 
       {/* ─── Category Filter Chips ────────────────────────────────────── */}
-      <div className="px-4 py-3 overflow-x-auto no-scrollbar flex items-center gap-2">
+      <div className="px-4 sm:px-5 overflow-x-auto no-scrollbar flex items-center gap-2 py-0.5">
         {categories.map((cat) => {
           const isActive = selectedCategory === cat;
           return (
@@ -113,8 +112,8 @@ export default function WholesaleHome({ onNavigateTab }) {
               type="button"
               className={`min-h-[44px] px-3.5 rounded-xl text-xs font-bold shrink-0 transition-all active:scale-95 border ${
                 isActive
-                  ? 'bg-blue-700 text-white border-blue-700 shadow-sm'
-                  : 'bg-white text-slate-600 border-slate-200/80 hover:bg-slate-50'
+                  ? 'bg-blue-700 text-white border-blue-700 shadow-xs'
+                  : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
               }`}
             >
               {cat === 'all' ? 'All B2B Lots' : cat}
@@ -124,8 +123,8 @@ export default function WholesaleHome({ onNavigateTab }) {
       </div>
 
       {/* ─── Bulk Product Catalog ─────────────────────────────────────── */}
-      <div className="px-4 pt-1">
-        <div className="flex items-center justify-between mb-3">
+      <div className="px-4 sm:px-5 flex flex-col gap-3">
+        <div className="flex items-center justify-between">
           <h3 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">
             Wholesale Catalog
             <span className="text-slate-400 ml-1.5 font-semibold">({filteredProducts.length})</span>
@@ -133,7 +132,7 @@ export default function WholesaleHome({ onNavigateTab }) {
           <button
             onClick={() => onNavigateTab && onNavigateTab('messages')}
             type="button"
-            className="text-[11px] font-bold text-blue-700 hover:text-blue-900 flex items-center gap-0.5"
+            className="text-[11px] font-bold text-blue-700 hover:text-blue-900 flex items-center gap-0.5 min-h-[44px]"
           >
             <span>Live Deal Room</span>
             <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
@@ -145,13 +144,13 @@ export default function WholesaleHome({ onNavigateTab }) {
         )}
 
         {error && (
-          <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded-xl mb-3">
+          <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded-xl">
             ⚠️ {error}
           </div>
         )}
 
         {!loading && !error && (
-          <div className="grid grid-cols-2 gap-3 mb-5">
+          <div className="w-full grid grid-cols-2 gap-3">
             {filteredProducts.map((prod) => (
               <ProductCard
                 key={prod.id}
@@ -163,8 +162,8 @@ export default function WholesaleHome({ onNavigateTab }) {
         )}
 
         {/* ─── Active Enterprise Projects ──────────────────────────────── */}
-        <div className="mb-2">
-          <div className="flex items-center justify-between mb-2.5">
+        <div className="flex flex-col gap-2.5 pt-2">
+          <div className="flex items-center justify-between">
             <h3 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">
               Active Project Portfolios
             </h3>
@@ -173,7 +172,7 @@ export default function WholesaleHome({ onNavigateTab }) {
             </span>
           </div>
 
-          <div className="flex flex-col gap-2.5">
+          <div className="w-full flex flex-col gap-2.5">
             {projects.map((proj) => (
               <ProjectCard
                 key={proj.id}

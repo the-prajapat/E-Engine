@@ -17,13 +17,12 @@ const STORAGE_KEY = 'e_engine_user_role';
 
 /**
  * Root Application Container
- * Production-ready mobile client strictly adhering to:
- * - ISSUE 1: Strict mobile container (w-full max-w-md mx-auto min-h-screen bg-neutral-50 relative pb-20 overflow-x-hidden)
- * - ISSUE 2: High-contrast elevated design system
- * - ISSUE 3: Zero developer overlays or debug switchers
- * - ISSUE 4: Mandatory Root Gate (RoleSelection) & persistent role state
- * - ISSUE 5: Fully interactive Bottom Navigation Bar tied to active state
- * - ISSUE 6: Zero-loop architecture and state safety
+ * Adheres strictly to UI & Layout requirements:
+ * 1. Mobile-First & Fully Fluid: w-full, max-w-md, flex, percentage, zero fixed px bottlenecks.
+ * 2. Safe Scrolling: min-h-screen with overflow-y-auto on main container.
+ * 3. Flexbox/Grid Layout: flex-col with gap- utilities for spacing.
+ * 4. Safe Areas & Padding: px-4 to px-6 safe horizontal padding.
+ * 5. Responsive Controls: min-height 44px on all touch targets.
  */
 export default function App() {
   // Read saved role session on initialization
@@ -43,7 +42,7 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [activeTab, userRole]);
 
-  // Set role from Root Gate (ISSUE 4)
+  // Set role from Root Gate
   const handleSelectRole = (role) => {
     try {
       localStorage.setItem(STORAGE_KEY, role);
@@ -54,7 +53,7 @@ export default function App() {
     setActiveTab('home');
   };
 
-  // Switch role only from Profile screens (ISSUE 4)
+  // Switch role only from Profile screens
   const handleSwitchRole = (newRole) => {
     try {
       localStorage.setItem(STORAGE_KEY, newRole);
@@ -100,8 +99,10 @@ export default function App() {
   // ─── GATE 1: Unauthenticated / First Launch Root Gate ────────────────
   if (!userRole) {
     return (
-      <div className="w-full min-h-screen bg-slate-900 flex justify-center items-start">
-        <RoleSelection onSelectRole={handleSelectRole} />
+      <div className="w-full min-h-screen bg-slate-900/90 flex justify-center items-start">
+        <div className="w-full max-w-md mx-auto min-h-screen bg-neutral-50 relative overflow-x-hidden overflow-y-auto shadow-2xl border-x border-slate-200/60 flex flex-col">
+          <RoleSelection onSelectRole={handleSelectRole} />
+        </div>
       </div>
     );
   }
@@ -175,13 +176,13 @@ export default function App() {
 
   return (
     <div className="w-full min-h-screen bg-slate-900/90 flex justify-center items-start">
-      {/* ─── Strict Mobile Viewport Container (ISSUE 1) ───────────────── */}
-      <div className="w-full max-w-md mx-auto min-h-screen bg-neutral-50 relative pb-20 overflow-x-hidden shadow-2xl border-x border-slate-200/60">
-        <main className="w-full min-h-screen">
+      {/* ─── Strict Mobile-First Fluid Container ──────────────────────── */}
+      <div className="w-full max-w-md mx-auto min-h-screen bg-neutral-50 relative pb-20 overflow-x-hidden overflow-y-auto shadow-2xl border-x border-slate-200/60 flex flex-col">
+        <main className="w-full flex-1 flex flex-col min-h-0">
           {userRole === 'retail' ? renderRetailContent() : renderWholesaleContent()}
         </main>
 
-        {/* ─── Production Bottom Navigation Bar (ISSUE 5) ─────────────── */}
+        {/* ─── Production Bottom Navigation Bar ──────────────────────── */}
         <MobileBottomNav
           mode={userRole}
           activeTab={activeTab}

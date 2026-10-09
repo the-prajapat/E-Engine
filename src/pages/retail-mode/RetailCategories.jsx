@@ -12,7 +12,7 @@ const CATEGORY_AISLES = [
 
 /**
  * RetailCategories (Smart Container Page)
- * ISSUE 5: Interactive Categories Tab for Retail Mode.
+ * Fully fluid, mobile-first categories browser with safe padding and responsive aisles.
  */
 export default function RetailCategories({ cartItems = {}, onUpdateCart }) {
   const [activeAisle, setActiveAisle] = useState('all');
@@ -48,9 +48,9 @@ export default function RetailCategories({ cartItems = {}, onUpdateCart }) {
   });
 
   return (
-    <div className="w-full flex flex-col pb-24 select-none">
+    <div className="w-full flex-1 flex flex-col gap-3 pb-28 select-none overflow-y-auto">
       {/* ─── Header ──────────────────────────────────────────────────── */}
-      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 px-4 py-3 shadow-xs">
+      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 px-4 sm:px-5 py-3 shadow-xs">
         <h1 className="text-base font-extrabold text-slate-900 tracking-tight">
           Explore Categories
         </h1>
@@ -60,8 +60,8 @@ export default function RetailCategories({ cartItems = {}, onUpdateCart }) {
       </header>
 
       {/* ─── Aisle Tiles Grid ────────────────────────────────────────── */}
-      <div className="px-4 py-3.5">
-        <div className="grid grid-cols-2 gap-2.5 mb-4">
+      <div className="px-4 sm:px-5 flex flex-col gap-3">
+        <div className="w-full grid grid-cols-2 gap-2.5">
           {CATEGORY_AISLES.map((aisle) => {
             const isSelected = activeAisle === aisle.id;
             return (
@@ -69,10 +69,10 @@ export default function RetailCategories({ cartItems = {}, onUpdateCart }) {
                 key={aisle.id}
                 onClick={() => setActiveAisle(aisle.id)}
                 type="button"
-                className={`p-3 rounded-2xl border text-left flex items-center gap-3 transition-all active:scale-95 min-h-[52px] ${
+                className={`w-full p-3 rounded-2xl border text-left flex items-center gap-2.5 transition-all active:scale-95 min-h-[52px] ${
                   isSelected
-                    ? 'bg-blue-700 text-white border-blue-700 shadow-sm'
-                    : 'bg-white text-slate-800 border-slate-200/80 hover:bg-slate-50'
+                    ? 'bg-blue-700 text-white border-blue-700 shadow-xs'
+                    : 'bg-white text-slate-800 border-slate-200 hover:bg-slate-50'
                 }`}
               >
                 <div
@@ -84,12 +84,12 @@ export default function RetailCategories({ cartItems = {}, onUpdateCart }) {
                     {aisle.icon}
                   </span>
                 </div>
-                <div className="min-w-0">
+                <div className="min-w-0 flex-1">
                   <span className="text-xs font-bold block truncate">
                     {aisle.title}
                   </span>
                   <span
-                    className={`text-[10px] font-medium ${
+                    className={`text-[10px] font-medium block truncate ${
                       isSelected ? 'text-blue-100' : 'text-slate-400'
                     }`}
                   >
@@ -101,28 +101,30 @@ export default function RetailCategories({ cartItems = {}, onUpdateCart }) {
           })}
         </div>
 
-        {/* ─── Filtered Items ────────────────────────────────────────── */}
-        <div className="flex items-center justify-between mb-3">
-          <h2 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">
-            {activeAisle === 'all' ? 'All Items' : activeAisle}
-            <span className="text-slate-400 ml-1.5 font-semibold">({filtered.length})</span>
-          </h2>
-        </div>
-
-        {loading ? (
-          <LoadingSkeleton count={3} message="Loading department items..." />
-        ) : (
-          <div className="grid grid-cols-2 gap-3">
-            {filtered.map((prod) => (
-              <ProductCard
-                key={prod.id}
-                product={prod}
-                quantity={cartItems[prod.id]?.quantity || 0}
-                onQuantityChange={onUpdateCart}
-              />
-            ))}
+        {/* ─── Filtered Items Section ──────────────────────────────────── */}
+        <div className="flex flex-col gap-2.5 pt-1">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">
+              {activeAisle === 'all' ? 'All Items' : activeAisle}
+              <span className="text-slate-400 ml-1.5 font-semibold">({filtered.length})</span>
+            </h2>
           </div>
-        )}
+
+          {loading ? (
+            <LoadingSkeleton count={3} message="Loading department items..." />
+          ) : (
+            <div className="w-full grid grid-cols-2 gap-3">
+              {filtered.map((prod) => (
+                <ProductCard
+                  key={prod.id}
+                  product={prod}
+                  quantity={cartItems[prod.id]?.quantity || 0}
+                  onQuantityChange={onUpdateCart}
+                />
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

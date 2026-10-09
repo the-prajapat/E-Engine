@@ -16,8 +16,7 @@ const QUICK_CATEGORIES = [
 
 /**
  * RetailHome (Smart Container Page)
- * ISSUE 1, 2, 4, 6: Blinkit-style 10-minute quick commerce, location bar,
- * categories, dynamic stepper, zero-loop state safety.
+ * Fully fluid, mobile-first quick commerce storefront with safe areas and gap spacing.
  */
 export default function RetailHome({
   cartItems = {},
@@ -91,7 +90,7 @@ export default function RetailHome({
   };
 
   return (
-    <div className="w-full flex flex-col pb-24 select-none">
+    <div className="w-full flex-1 flex flex-col gap-3 pb-28 select-none overflow-y-auto">
       {/* ─── Top Location Bar ────────────────────────────────────────── */}
       <TopLocationBar
         address="Civil Lines, Metro Hub, Jaipur"
@@ -101,8 +100,8 @@ export default function RetailHome({
       />
 
       {/* ─── Search Bar ──────────────────────────────────────────────── */}
-      <div className="px-4 py-2.5 bg-white border-b border-slate-100">
-        <div className="relative flex items-center">
+      <div className="px-4 sm:px-5">
+        <div className="relative flex items-center w-full">
           <span className="material-symbols-outlined absolute left-3.5 text-slate-400 text-[20px]">
             search
           </span>
@@ -111,13 +110,13 @@ export default function RetailHome({
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder='Search "earbuds", "charger", "flask"...'
-            className="w-full h-11 pl-10 pr-4 bg-slate-50 border border-slate-200/80 rounded-xl text-xs font-semibold text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600/30 focus:border-blue-600 transition-all"
+            className="w-full min-h-[44px] pl-10 pr-9 bg-white border border-slate-200/90 rounded-2xl text-xs font-semibold text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600/30 focus:border-blue-600 shadow-xs transition-all"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
               type="button"
-              className="absolute right-3 text-slate-400 hover:text-slate-600 text-xs font-bold"
+              className="absolute right-3 w-7 h-7 flex items-center justify-center text-slate-400 hover:text-slate-600 text-xs font-bold"
             >
               ✕
             </button>
@@ -126,26 +125,26 @@ export default function RetailHome({
       </div>
 
       {/* ─── Quick Commerce Promo Banner ─────────────────────────────── */}
-      <div className="px-4 pt-3 pb-1">
-        <div className="bg-gradient-to-r from-blue-700 via-blue-800 to-indigo-900 rounded-2xl p-4 text-white shadow-sm relative overflow-hidden">
-          <div className="relative z-10">
-            <div className="inline-flex items-center gap-1 bg-amber-400 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full mb-1.5 shadow-xs">
+      <div className="px-4 sm:px-5">
+        <div className="w-full bg-gradient-to-r from-blue-700 via-blue-800 to-indigo-900 rounded-2xl p-4 text-white shadow-sm relative overflow-hidden">
+          <div className="relative z-10 flex flex-col gap-1">
+            <div className="self-start inline-flex items-center gap-1 bg-amber-400 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full shadow-xs">
               ⚡ HYPERLOCAL FLASH SALE
             </div>
-            <h2 className="text-base font-extrabold tracking-tight">
+            <h2 className="text-sm sm:text-base font-extrabold tracking-tight">
               Get 20% OFF on Tech &amp; Essentials
             </h2>
-            <p className="text-[11px] text-blue-100 mt-0.5">
+            <p className="text-[11px] text-blue-100">
               Guaranteed delivery in 10 minutes to Civil Lines, Jaipur
             </p>
           </div>
-          {/* Subtle decoration */}
+          {/* Subtle background glow */}
           <div className="absolute -right-4 -bottom-6 w-24 h-24 bg-white/10 rounded-full blur-xl pointer-events-none" />
         </div>
       </div>
 
       {/* ─── Category Strip ──────────────────────────────────────────── */}
-      <div className="px-4 py-3 overflow-x-auto no-scrollbar flex items-center gap-2">
+      <div className="px-4 sm:px-5 overflow-x-auto no-scrollbar flex items-center gap-2 py-0.5">
         {QUICK_CATEGORIES.map((cat) => {
           const isActive = selectedCategory === cat.id;
           return (
@@ -155,8 +154,8 @@ export default function RetailHome({
               type="button"
               className={`min-h-[44px] px-3.5 rounded-xl text-xs font-bold shrink-0 flex items-center gap-1.5 transition-all select-none active:scale-95 border ${
                 isActive
-                  ? 'bg-blue-700 text-white border-blue-700 shadow-sm'
-                  : 'bg-white text-slate-600 border-slate-200/80 hover:bg-slate-50'
+                  ? 'bg-blue-700 text-white border-blue-700 shadow-xs'
+                  : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
               }`}
             >
               <span className="material-symbols-outlined text-[16px]">
@@ -169,8 +168,8 @@ export default function RetailHome({
       </div>
 
       {/* ─── Product Catalog Grid ────────────────────────────────────── */}
-      <div className="px-4 pt-1">
-        <div className="flex items-center justify-between mb-3">
+      <div className="px-4 sm:px-5 flex flex-col gap-2.5">
+        <div className="flex items-center justify-between">
           <h3 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">
             {selectedCategory === 'all' ? 'Trending Products' : `${selectedCategory} catalog`}
             <span className="text-slate-400 ml-1.5 font-semibold">({filteredProducts.length})</span>
@@ -188,21 +187,21 @@ export default function RetailHome({
         )}
 
         {error && (
-          <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded-xl mb-3">
+          <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded-xl">
             ⚠️ {error}
           </div>
         )}
 
         {!loading && !error && filteredProducts.length === 0 && (
-          <div className="text-center py-12 bg-white rounded-2xl border border-slate-200/80 p-6">
+          <div className="text-center py-12 bg-white rounded-2xl border border-slate-200/80 p-6 flex flex-col items-center gap-1">
             <span className="text-3xl">🔍</span>
-            <p className="text-xs font-bold text-slate-800 mt-2">No matching products found</p>
-            <p className="text-[11px] text-slate-400 mt-1">Try another category or search keyword</p>
+            <p className="text-xs font-bold text-slate-800 mt-1">No matching products found</p>
+            <p className="text-[11px] text-slate-400">Try another category or search keyword</p>
           </div>
         )}
 
         {!loading && !error && filteredProducts.length > 0 && (
-          <div className="grid grid-cols-2 gap-3">
+          <div className="w-full grid grid-cols-2 gap-3">
             {filteredProducts.map((prod) => {
               const currentQty = cartItems[prod.id]?.quantity || 0;
               return (
@@ -222,11 +221,11 @@ export default function RetailHome({
       {totalCartCount > 0 && (
         <aside
           aria-label="Floating Cart Summary"
-          className="fixed bottom-[72px] left-0 right-0 z-40 max-w-md mx-auto px-4 pointer-events-none"
+          className="fixed bottom-[74px] left-0 right-0 z-40 w-full max-w-md mx-auto px-4 sm:px-5 pointer-events-none"
         >
           <div
             onClick={() => onNavigateTab && onNavigateTab('cart')}
-            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white p-3 rounded-2xl shadow-xl flex items-center justify-between cursor-pointer pointer-events-auto active:scale-[0.99] transition-all select-none"
+            className="w-full min-h-[50px] bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white p-3 rounded-2xl shadow-xl flex items-center justify-between cursor-pointer pointer-events-auto active:scale-[0.99] transition-all select-none"
           >
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center font-bold text-xs">

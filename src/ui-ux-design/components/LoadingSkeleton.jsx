@@ -1,51 +1,31 @@
 import React from 'react';
-import { stitchTheme } from '../theme.config.js';
 
 /**
- * LoadingSkeleton Component
- * STRICT RULE: Dumb presentation placeholder.
+ * LoadingSkeleton Component (Dumb Presentation Component)
+ * Mobile-first fluid skeleton loader with zero fixed-pixel bottlenecks.
+ *
+ * @param {Object} props
+ * @param {number} [props.count=4]
+ * @param {string} [props.message='Loading catalog...']
  */
-export default function LoadingSkeleton({ count = 4, message = 'Fetching data...' }) {
+export default function LoadingSkeleton({ count = 4, message = 'Loading catalog...' }) {
   return (
-    <div style={{ padding: '2rem 1.5rem', textAlign: 'center' }}>
-      <div
-        style={{
-          display: 'inline-block',
-          width: '32px',
-          height: '32px',
-          border: `3px solid ${stitchTheme.colors.border}`,
-          borderTopColor: stitchTheme.colors.primary,
-          borderRadius: '50%',
-          animation: 'spin 0.8s linear infinite',
-          marginBottom: '1rem',
-        }}
-      />
-      <p style={{ margin: 0, fontSize: '0.9rem', color: stitchTheme.colors.textMuted }}>{message}</p>
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
-          gap: '1rem',
-          marginTop: '1.5rem',
-        }}
-      >
+    <div className="w-full flex flex-col items-center justify-center py-6 px-2 select-none">
+      <div className="w-8 h-8 border-3 border-slate-200 border-t-blue-700 rounded-full animate-spin mb-2" />
+      <p className="text-xs font-semibold text-slate-500 mb-4">{message}</p>
+
+      <div className="w-full grid grid-cols-2 gap-3">
         {Array.from({ length: count }).map((_, idx) => (
           <div
             key={idx}
-            style={{
-              height: '220px',
-              backgroundColor: stitchTheme.colors.border,
-              borderRadius: stitchTheme.radius.lg,
-              opacity: 0.35,
-            }}
-          />
+            className="w-full h-44 bg-slate-200/70 rounded-2xl animate-pulse flex flex-col p-3 gap-2"
+          >
+            <div className="w-full h-24 bg-slate-300/80 rounded-xl" />
+            <div className="w-3/4 h-3 bg-slate-300/80 rounded" />
+            <div className="w-1/2 h-3 bg-slate-300/80 rounded mt-auto" />
+          </div>
         ))}
       </div>
-      <style>{`
-        @keyframes spin {
-          to { transform: rotate(360deg); }
-        }
-      `}</style>
     </div>
   );
 }

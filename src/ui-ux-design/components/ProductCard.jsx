@@ -3,8 +3,8 @@ import QuantityStepper from './QuantityStepper.jsx';
 
 /**
  * ProductCard Component (Dumb Presentation Component)
- * ISSUE 1 & ISSUE 2: Normalized mobile card with 44px+ tap targets, high contrast,
- * Deep Trust Blue, Quick-Commerce Green & Warning Orange badges.
+ * Fluid, mobile-first card with relative sizing, 44px+ tap targets,
+ * and high-contrast color badges.
  *
  * @param {Object} props
  * @param {Object} props.product
@@ -36,9 +36,9 @@ export default function ProductCard({
   };
 
   return (
-    <div className="flex flex-col bg-white rounded-2xl border border-slate-100 shadow-sm p-3 transition-all duration-200 hover:shadow-md relative overflow-hidden select-none">
+    <div className="w-full flex flex-col bg-white rounded-2xl border border-slate-100 shadow-sm p-3 transition-all duration-200 hover:shadow-md relative overflow-hidden select-none">
       {/* Visual Badge / Image Area */}
-      <div className="w-full h-32 rounded-xl bg-slate-50 border border-slate-100/80 flex items-center justify-center relative overflow-hidden mb-2.5">
+      <div className="w-full h-28 sm:h-32 rounded-xl bg-slate-50 border border-slate-100/80 flex items-center justify-center relative overflow-hidden mb-2">
         {product.image ? (
           <img
             src={product.image}
@@ -79,15 +79,15 @@ export default function ProductCard({
       </h3>
 
       {/* Weight / Spec */}
-      <p className="text-[11px] font-medium text-slate-500 mb-2">
+      <p className="text-[11px] font-medium text-slate-500 mb-2 truncate">
         {product.weight || (product.moq ? `Bulk Lot • Tier 1` : '1 unit')}
       </p>
 
       {/* Price & Action Stepper */}
-      <div className="mt-auto pt-2 border-t border-slate-100 flex items-center justify-between gap-2">
-        <div className="flex flex-col min-w-0">
+      <div className="mt-auto pt-2 border-t border-slate-100 flex items-center justify-between gap-1">
+        <div className="flex flex-col min-w-0 flex-1">
           <span className="text-[10px] font-medium text-slate-400">Price</span>
-          <span className="text-sm font-extrabold text-blue-900 truncate">
+          <span className="text-xs sm:text-sm font-extrabold text-blue-900 truncate">
             ₹{Number(product.price).toLocaleString('en-IN')}
           </span>
         </div>

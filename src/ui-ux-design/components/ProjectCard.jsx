@@ -2,7 +2,7 @@ import React from 'react';
 
 /**
  * ProjectCard Component (Dumb Presentation Component)
- * Normalized mobile card for B2B Projects with min 44px tap targets.
+ * Fluid mobile card for B2B Projects with min 44px tap targets.
  *
  * @param {Object} props
  * @param {Object} props.project
@@ -15,7 +15,7 @@ export default function ProjectCard({ project, onSelectProject }) {
   const isActive = project.status?.toLowerCase() === 'active' || project.status?.toLowerCase() === 'in progress';
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-sm flex flex-col gap-3 transition-all hover:shadow-md">
+    <div className="w-full bg-white rounded-2xl border border-slate-200/80 p-4 shadow-sm flex flex-col gap-3 transition-all hover:shadow-md select-none">
       <div className="flex justify-between items-start gap-2">
         <div className="min-w-0 flex-1">
           <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">
@@ -57,7 +57,7 @@ export default function ProjectCard({ project, onSelectProject }) {
           <button
             onClick={() => onSelectProject(project)}
             type="button"
-            className="min-h-[44px] px-3.5 flex items-center justify-center text-xs font-bold text-blue-700 bg-blue-50 hover:bg-blue-100 active:bg-blue-200 rounded-xl transition-all active:scale-95 border border-blue-100"
+            className="min-h-[44px] px-3.5 flex items-center justify-center text-xs font-bold text-blue-700 bg-blue-50 hover:bg-blue-100 active:bg-blue-200 rounded-xl transition-all active:scale-95 border border-blue-100 shrink-0"
           >
             View Details →
           </button>

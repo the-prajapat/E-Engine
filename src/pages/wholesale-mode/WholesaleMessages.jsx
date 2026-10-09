@@ -26,7 +26,7 @@ const INITIAL_MESSAGES = [
 
 /**
  * WholesaleMessages (Smart Container Page)
- * ISSUE 5: Wholesale Messages / Deals Tab with live price negotiation room.
+ * Fully fluid, mobile-first B2B Live Negotiation room with safe padding and 44px+ controls.
  */
 export default function WholesaleMessages() {
   const [messages, setMessages] = useState(INITIAL_MESSAGES);
@@ -58,9 +58,9 @@ export default function WholesaleMessages() {
   };
 
   return (
-    <div className="w-full flex flex-col pb-24 select-none">
+    <div className="w-full flex-1 flex flex-col gap-3 pb-28 select-none overflow-y-auto">
       {/* ─── Header ──────────────────────────────────────────────────── */}
-      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 px-4 py-3 shadow-xs flex items-center justify-between">
+      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 px-4 sm:px-5 py-3 shadow-xs flex items-center justify-between">
         <div>
           <h1 className="text-base font-extrabold text-slate-900 tracking-tight">
             Live Deal Room
@@ -76,7 +76,7 @@ export default function WholesaleMessages() {
       </header>
 
       {/* ─── Deal Summary Bar ────────────────────────────────────────── */}
-      <div className="px-4 py-2.5 bg-slate-100 border-b border-slate-200/80 flex items-center justify-between text-xs">
+      <div className="px-4 sm:px-5 py-2.5 bg-slate-100 border-b border-slate-200/80 flex items-center justify-between text-xs">
         <div>
           <span className="text-slate-500 block text-[10px]">Item Lot</span>
           <span className="font-bold text-slate-800">MCU Pack of 100 (5 Lots)</span>
@@ -88,7 +88,7 @@ export default function WholesaleMessages() {
       </div>
 
       {/* ─── Chat Stream ─────────────────────────────────────────────── */}
-      <div className="px-4 py-3 flex flex-col gap-3 flex-1 min-h-[300px]">
+      <div className="px-4 sm:px-5 flex flex-col gap-3 flex-1 min-h-[260px]">
         {messages.map((m) => {
           const isMe = m.sender === 'user';
           return (
@@ -116,12 +116,12 @@ export default function WholesaleMessages() {
       </div>
 
       {/* ─── Interactive Negotiation Actions ─────────────────────────── */}
-      <div className="px-4 pt-2">
+      <div className="px-4 sm:px-5 pt-1">
         {!dealAccepted ? (
-          <div className="bg-white rounded-2xl border border-slate-200/80 p-3 shadow-xs space-y-2.5">
+          <div className="w-full bg-white rounded-2xl border border-slate-200/80 p-3.5 shadow-xs flex flex-col gap-2.5">
             <div className="flex items-center gap-2">
               <div className="relative flex-1">
-                <span className="absolute left-3 top-2.5 text-xs font-bold text-slate-400">
+                <span className="absolute left-3 top-3 text-xs font-bold text-slate-400">
                   ₹
                 </span>
                 <input
@@ -129,14 +129,14 @@ export default function WholesaleMessages() {
                   value={counterPrice}
                   onChange={(e) => setCounterPrice(e.target.value)}
                   placeholder="Enter counter price"
-                  className="w-full h-11 pl-7 pr-3 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600/30"
+                  className="w-full min-h-[44px] pl-7 pr-3 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600/30"
                 />
               </div>
 
               <button
                 onClick={handleSendCounter}
                 type="button"
-                className="min-h-[44px] px-3.5 bg-blue-700 hover:bg-blue-800 text-white font-bold text-xs rounded-xl transition-all active:scale-95 shadow-sm"
+                className="min-h-[44px] px-4 bg-blue-700 hover:bg-blue-800 active:bg-blue-900 text-white font-bold text-xs rounded-xl transition-all active:scale-95 shadow-xs flex items-center justify-center shrink-0"
               >
                 Send Offer
               </button>
@@ -145,14 +145,14 @@ export default function WholesaleMessages() {
             <button
               onClick={handleAcceptDeal}
               type="button"
-              className="w-full min-h-[44px] bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold text-xs rounded-xl transition-all shadow-sm flex items-center justify-center gap-1.5 active:scale-95"
+              className="w-full min-h-[48px] bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold text-xs rounded-xl transition-all shadow-xs flex items-center justify-center gap-1.5 active:scale-95"
             >
               <span className="material-symbols-outlined text-[18px]">handshake</span>
               <span>Accept Deal at ₹27,000/Lot</span>
             </button>
           </div>
         ) : (
-          <div className="p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold rounded-2xl text-center">
+          <div className="w-full p-3.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold rounded-2xl text-center shadow-xs">
             ✅ Deal Contract Finalized • Proforma Invoice Sent to Accounts
           </div>
         )}

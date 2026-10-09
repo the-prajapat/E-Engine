@@ -2,7 +2,7 @@ import React from 'react';
 
 /**
  * WholesaleProfile (Smart Container Page)
- * ISSUE 4: Profile Page containing the persistent "Switch Mode" toggle to Retail.
+ * Fully fluid, mobile-first B2B Profile page with mode switcher and safe areas.
  *
  * @param {Object} props
  * @param {Function} props.onSwitchMode - Callback to switch mode ('retail' | 'wholesale')
@@ -10,9 +10,9 @@ import React from 'react';
  */
 export default function WholesaleProfile({ onSwitchMode, onResetRole }) {
   return (
-    <div className="w-full flex flex-col pb-28 select-none">
+    <div className="w-full flex-1 flex flex-col gap-3 pb-28 select-none overflow-y-auto">
       {/* ─── Header ──────────────────────────────────────────────────── */}
-      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 px-4 py-3 shadow-xs">
+      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 px-4 sm:px-5 py-3 shadow-xs">
         <h1 className="text-base font-extrabold text-slate-900 tracking-tight">
           Enterprise Profile
         </h1>
@@ -21,10 +21,10 @@ export default function WholesaleProfile({ onSwitchMode, onResetRole }) {
         </p>
       </header>
 
-      <div className="px-4 py-3 flex flex-col gap-3.5">
+      <div className="px-4 sm:px-5 flex flex-col gap-3.5">
         {/* ─── Enterprise Profile Card ─────────────────────────────────── */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-xs flex items-center gap-3.5">
-          <div className="w-14 h-14 rounded-2xl bg-slate-900 text-white flex items-center justify-center font-black text-xl shadow-md">
+        <div className="w-full bg-white rounded-2xl border border-slate-200/80 p-4 shadow-xs flex items-center gap-3.5">
+          <div className="w-14 h-14 rounded-2xl bg-slate-900 text-white flex items-center justify-center font-black text-xl shadow-md shrink-0">
             PL
           </div>
           <div className="flex-1 min-w-0">
@@ -32,40 +32,40 @@ export default function WholesaleProfile({ onSwitchMode, onResetRole }) {
               <h2 className="text-sm font-extrabold text-slate-900 truncate">
                 Prajapat Logistics &amp; Trade
               </h2>
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-800">
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-800 shrink-0">
                 B2B
               </span>
             </div>
             <p className="text-xs text-slate-500 truncate mt-0.5">
               GSTIN: 08AAAAA0000A1Z5 (Active)
             </p>
-            <p className="text-[11px] text-slate-400 font-medium">
+            <p className="text-[11px] text-slate-400 font-medium truncate">
               Authorized: Khushal Prajapat
             </p>
           </div>
         </div>
 
         {/* ─── MANDATORY SWITCH MODE CARD (ISSUE 4) ────────────────────── */}
-        <div className="bg-gradient-to-br from-blue-700 via-blue-800 to-indigo-900 text-white rounded-2xl p-4 shadow-md relative overflow-hidden">
-          <div className="flex items-start justify-between gap-2 mb-2">
+        <div className="w-full bg-gradient-to-br from-blue-700 via-blue-800 to-indigo-900 text-white rounded-2xl p-4 shadow-md relative overflow-hidden flex flex-col gap-2.5">
+          <div className="flex items-start justify-between gap-2">
             <div className="flex items-center gap-2">
-              <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center text-white">
+              <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center text-white shrink-0">
                 <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>
                   shopping_bag
                 </span>
               </div>
-              <div>
+              <div className="min-w-0">
                 <span className="text-[10px] font-bold text-blue-200 uppercase tracking-wider block">
                   Role Switcher
                 </span>
-                <h3 className="text-sm font-extrabold text-white">
+                <h3 className="text-sm font-extrabold text-white truncate">
                   Retail Storefront (Personal Use)
                 </h3>
               </div>
             </div>
           </div>
 
-          <p className="text-xs text-blue-100 mb-3.5 leading-relaxed">
+          <p className="text-xs text-blue-100 leading-relaxed">
             Done with bulk purchasing? Switch to personal mode for 10-minute quick-commerce delivery, fresh essentials, and 1-click checkout.
           </p>
 
@@ -82,8 +82,8 @@ export default function WholesaleProfile({ onSwitchMode, onResetRole }) {
         </div>
 
         {/* ─── Credit Limit & Financials ───────────────────────────────── */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-3.5 shadow-xs">
-          <h4 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider mb-2.5">
+        <div className="w-full bg-white rounded-2xl border border-slate-200/80 p-3.5 shadow-xs flex flex-col gap-2">
+          <h4 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">
             Trade Credit Line
           </h4>
           <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 space-y-2 text-xs">
@@ -103,17 +103,17 @@ export default function WholesaleProfile({ onSwitchMode, onResetRole }) {
         </div>
 
         {/* ─── Tax Invoices & Compliance ──────────────────────────────── */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-3.5 shadow-xs">
-          <h4 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider mb-2">
+        <div className="w-full bg-white rounded-2xl border border-slate-200/80 p-3.5 shadow-xs flex flex-col gap-2">
+          <h4 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">
             Tax Documents
           </h4>
           <div className="space-y-2">
-            <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between">
-              <div>
-                <span className="text-xs font-bold text-slate-800 block">Q2 GST Return Filing (GSTR-1)</span>
-                <span className="text-[10px] text-slate-500">Filed on 20 Sep 2026 • Verified</span>
+            <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between gap-2">
+              <div className="min-w-0 flex-1">
+                <span className="text-xs font-bold text-slate-800 block truncate">Q2 GST Return Filing (GSTR-1)</span>
+                <span className="text-[10px] text-slate-500 block truncate">Filed on 20 Sep 2026 • Verified</span>
               </div>
-              <span className="text-xs font-extrabold text-emerald-700">Reconciled</span>
+              <span className="text-xs font-extrabold text-emerald-700 shrink-0">Reconciled</span>
             </div>
           </div>
         </div>
