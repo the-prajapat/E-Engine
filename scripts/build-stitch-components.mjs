@@ -16,6 +16,58 @@ function convertHtmlToJsx(html, componentName, title) {
   // Convert HTML comments <!-- ... --> to JSX comments {/* ... */}
   inner = inner.replace(/<!--([\s\S]*?)-->/g, '{/* $1 */}');
 
+  // Currency Conversion: Dollars ($) to Indian Rupees (₹)
+  const priceMap = [
+    ['$1,500', '₹1,20,000'],
+    ['$2,200', '₹1,76,000'],
+    ['$850', '₹68,000'],
+    ['$41.20', '₹3,296'],
+    ['$29.00', '₹2,320'],
+    ['$18.50', '₹1,480'],
+    ['$34.38', '₹1,720'],
+    ['$29.88', '₹1,494'],
+    ['$28.40', '₹1,420'],
+    ['$25.00', '₹499'],
+    ['$25', '₹499'],
+    ['$23.21', '₹1,160'],
+    ['$17.50', '₹899'],
+    ['$14.99', '₹749'],
+    ['$11.99', '₹599'],
+    ['$7.68', '₹385'],
+    ['$6.49', '₹325'],
+    ['$5.73', '₹285'],
+    ['$4.89', '₹210'],
+    ['$4.50', '₹90'],
+    ['$4.49', '₹225'],
+    ['$4.28', '₹75'],
+    ['$4.20', '₹180'],
+    ['$4.19', '₹175'],
+    ['$3.99', '₹199'],
+    ['$3.49', '₹149'],
+    ['$3.00', '₹50'],
+    ['$2.99', '₹149'],
+    ['$2.49', '₹120'],
+    ['$2.30', '₹115'],
+    ['$2.00', '₹40'],
+    ['$1.99', '₹80'],
+    ['$1.89', '₹95'],
+    ['$0.99', '₹49'],
+    ['$3', '₹100'],
+    ['$2', '₹50'],
+    ['$1', '₹20'],
+  ];
+
+  for (const [usd, inr] of priceMap) {
+    inner = inner.replaceAll(usd, inr);
+  }
+
+  // Any remaining generic $ followed by numbers converted to ₹
+  inner = inner.replace(/\$(\d[\d,.]*)/g, '₹$1');
+
+  // Indian Localization adjustments
+  inner = inner.replaceAll('42 Elm Street, Brooklyn, NY', 'Civil Lines, Metro Sector 14, Jaipur');
+  inner = inner.replaceAll('Brooklyn, NY', 'Jaipur, Rajasthan');
+
   // Convert HTML attributes to JSX
   inner = inner.replaceAll('class="', 'className="');
   inner = inner.replaceAll('for="', 'htmlFor="');
@@ -95,6 +147,6 @@ for (const m of map) {
     const rawHtml = fs.readFileSync(rawPath, 'utf8');
     const jsx = convertHtmlToJsx(rawHtml, m.comp, m.title);
     fs.writeFileSync(path.join(outDir, `${m.comp}.jsx`), jsx, 'utf8');
-    console.log(`Regenerated: ${m.comp}.jsx (${jsx.length} bytes)`);
+    console.log(`Regenerated in Rupees (₹): ${m.comp}.jsx (${jsx.length} bytes)`);
   }
 }

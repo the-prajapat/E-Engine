@@ -23,7 +23,7 @@ export default function StitchSmartCartSplitCheckout({ onNavigate, onAction, dat
 </div>
 </div>
 <span className="font-label-badge text-label-badge bg-primary/10 text-primary px-2.5 py-1 rounded-full uppercase tracking-wide">
-        4 Items • $28.40
+        4 Items • ₹1,420
       </span>
 </div>
 {/*  Free Delivery Gamified Progress Meter  */}
@@ -31,7 +31,7 @@ export default function StitchSmartCartSplitCheckout({ onNavigate, onAction, dat
 <div className="flex items-center justify-between text-on-surface">
 <div className="flex items-center gap-1.5">
 <span className="material-symbols-outlined text-primary text-[18px]" style={{"fontVariationSettings":"'FILL' 1"}}>eco</span>
-<span className="font-body-sm text-body-sm text-on-surface font-semibold">Add $4.28 more for Free Next-Day shipping</span>
+<span className="font-body-sm text-body-sm text-on-surface font-semibold">Add ₹75 more for Free Next-Day shipping</span>
 </div>
 <span className="font-label-badge text-label-badge text-primary font-bold">83%</span>
 </div>
@@ -67,8 +67,8 @@ export default function StitchSmartCartSplitCheckout({ onNavigate, onAction, dat
 <span className="font-body-md text-body-md text-on-surface font-semibold truncate">Fresh Hass Avocados</span>
 <span className="font-body-sm text-body-sm text-on-surface-variant">Pack of 2 • 320g</span>
 <div className="flex items-baseline gap-1 mt-0.5">
-<span className="font-price-display text-price-display text-on-surface">$3.49</span>
-<span className="font-price-strike text-price-strike text-outline line-through">$4.20</span>
+<span className="font-price-display text-price-display text-on-surface">₹149</span>
+<span className="font-price-strike text-price-strike text-outline line-through">₹180</span>
 </div>
 </div>
 </div>
@@ -93,8 +93,8 @@ export default function StitchSmartCartSplitCheckout({ onNavigate, onAction, dat
 <span className="font-body-md text-body-md text-on-surface font-semibold truncate">Organic Whole Milk</span>
 <span className="font-body-sm text-body-sm text-on-surface-variant">1 Gallon • 3.8L</span>
 <div className="flex items-baseline gap-1 mt-0.5">
-<span className="font-price-display text-price-display text-on-surface">$4.19</span>
-<span className="font-price-strike text-price-strike text-outline line-through">$4.89</span>
+<span className="font-price-display text-price-display text-on-surface">₹175</span>
+<span className="font-price-strike text-price-strike text-outline line-through">₹210</span>
 </div>
 </div>
 </div>
@@ -116,9 +116,9 @@ export default function StitchSmartCartSplitCheckout({ onNavigate, onAction, dat
 <span className="font-body-sm text-body-sm text-on-surface-variant">Dark Store Express delivery</span>
 </div>
 <div className="flex items-center gap-2">
-<span className="font-body-sm text-body-sm text-outline line-through">$1.99</span>
+<span className="font-body-sm text-body-sm text-outline line-through">₹80</span>
 <span className="font-label-action text-label-action text-primary uppercase">Free</span>
-<span className="font-headline-sm text-headline-sm text-on-surface ml-1">$7.68</span>
+<span className="font-headline-sm text-headline-sm text-on-surface ml-1">₹385</span>
 </div>
 </div>
 </div>
@@ -144,8 +144,8 @@ export default function StitchSmartCartSplitCheckout({ onNavigate, onAction, dat
 <span className="font-body-md text-body-md text-on-surface font-semibold truncate">Premium Sharbati Atta</span>
 <span className="font-body-sm text-body-sm text-on-surface-variant">100% Whole Wheat • 5 kg</span>
 <div className="flex items-baseline gap-1 mt-0.5">
-<span className="font-price-display text-price-display text-on-surface">$14.99</span>
-<span className="font-price-strike text-price-strike text-outline line-through">$17.50</span>
+<span className="font-price-display text-price-display text-on-surface">₹749</span>
+<span className="font-price-strike text-price-strike text-outline line-through">₹899</span>
 </div>
 </div>
 </div>
@@ -170,8 +170,8 @@ export default function StitchSmartCartSplitCheckout({ onNavigate, onAction, dat
 <span className="font-body-md text-body-md text-on-surface font-semibold truncate">Cold-Pressed Mustard Oil</span>
 <span className="font-body-sm text-body-sm text-on-surface-variant">Pure Virgin • 1 L</span>
 <div className="flex items-baseline gap-1 mt-0.5">
-<span className="font-price-display text-price-display text-on-surface">$5.73</span>
-<span className="font-price-strike text-price-strike text-outline line-through">$6.49</span>
+<span className="font-price-display text-price-display text-on-surface">₹285</span>
+<span className="font-price-strike text-price-strike text-outline line-through">₹325</span>
 </div>
 </div>
 </div>
@@ -190,11 +190,11 @@ export default function StitchSmartCartSplitCheckout({ onNavigate, onAction, dat
 <div className="bg-surface-container-low rounded-lg p-2.5 flex items-center justify-between mt-1">
 <div className="flex flex-col">
 <span className="font-body-sm text-body-sm text-on-surface-variant">Standard Scheduled delivery</span>
-<span className="font-label-badge text-label-badge text-primary">Free on orders above $25.00</span>
+<span className="font-label-badge text-label-badge text-primary">Free on orders above ₹499</span>
 </div>
 <div className="flex items-center gap-2">
-<span className="font-body-sm text-body-sm text-on-surface-variant">+$2.49</span>
-<span className="font-headline-sm text-headline-sm text-on-surface ml-1">$23.21</span>
+<span className="font-body-sm text-body-sm text-on-surface-variant">+₹120</span>
+<span className="font-headline-sm text-headline-sm text-on-surface ml-1">₹1,160</span>
 </div>
 </div>
 </div>
@@ -210,7 +210,7 @@ export default function StitchSmartCartSplitCheckout({ onNavigate, onAction, dat
 <span className="font-label-badge text-label-badge uppercase tracking-wider text-on-surface font-extrabold">AI SAVINGS TIP</span>
 </div>
 <span className="font-label-badge text-label-badge bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded-full">
-            Save $3.00 Now
+            Save ₹50 Now
           </span>
 </div>
 {/*  Suggestion Copy  */}
@@ -219,7 +219,7 @@ export default function StitchSmartCartSplitCheckout({ onNavigate, onAction, dat
             Add 1 more Atta — 20% OFF today!
           </p>
 <p className="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
-            Crossing $25 also unlocks <strong className="text-primary font-bold">FREE Next-Day Delivery</strong> automatically.
+            Crossing ₹499 also unlocks <strong className="text-primary font-bold">FREE Next-Day Delivery</strong> automatically.
           </p>
 </div>
 {/*  Action Button  */}
@@ -227,7 +227,7 @@ export default function StitchSmartCartSplitCheckout({ onNavigate, onAction, dat
 <button className="w-full bg-primary text-on-primary rounded-xl py-2.5 px-3 flex items-center justify-between font-label-action text-label-action hover:bg-primary-container active:scale-[0.99] transition-all shadow-sm" type="button">
 <span className="flex items-center gap-1.5">
 <span className="material-symbols-outlined text-[18px]">add_circle</span>
-<span>Add Atta (5kg) for $11.99</span>
+<span>Add Atta (5kg) for ₹599</span>
 </span>
 <span className="bg-white/20 text-on-primary text-[11px] font-bold px-2 py-0.5 rounded-full uppercase">
               Apply Offer
@@ -244,7 +244,7 @@ export default function StitchSmartCartSplitCheckout({ onNavigate, onAction, dat
 </div>
 <div className="flex flex-col">
 <span className="font-label-action text-label-action text-on-surface">SUPER20 Applied</span>
-<span className="font-body-sm text-body-sm text-primary font-semibold">You saved $2.00 on fresh essentials</span>
+<span className="font-body-sm text-body-sm text-primary font-semibold">You saved ₹40 on fresh essentials</span>
 </div>
 </div>
 <button className="font-label-action text-label-action text-primary hover:text-on-surface-variant transition-colors" type="button">
@@ -256,29 +256,29 @@ export default function StitchSmartCartSplitCheckout({ onNavigate, onAction, dat
 <h2 className="font-headline-sm text-headline-sm text-on-surface">Bill Breakdown</h2>
 <div className="flex items-center justify-between text-on-surface-variant">
 <span className="font-body-md text-body-md">Items Total (4 items)</span>
-<span className="font-body-md text-body-md text-on-surface font-semibold">$28.40</span>
+<span className="font-body-md text-body-md text-on-surface font-semibold">₹1,420</span>
 </div>
 <div className="flex items-center justify-between text-on-surface-variant">
 <span className="font-body-md text-body-md">Store Delivery Fee</span>
 <div className="flex items-center gap-1.5">
-<span className="font-body-sm text-body-sm line-through text-outline">$1.99</span>
+<span className="font-body-sm text-body-sm line-through text-outline">₹80</span>
 <span className="font-body-md text-body-md text-primary font-bold">FREE</span>
 </div>
 </div>
 <div className="flex items-center justify-between text-on-surface-variant">
 <span className="font-body-md text-body-md">Partner Warehouse Shipping</span>
-<span className="font-body-md text-body-md text-on-surface font-semibold">$2.49</span>
+<span className="font-body-md text-body-md text-on-surface font-semibold">₹120</span>
 </div>
 <div className="flex items-center justify-between text-on-surface-variant">
 <div className="flex items-center gap-1">
 <span className="font-body-md text-body-md">Handling &amp; Packaging</span>
 <span className="material-symbols-outlined text-[15px] text-outline">info</span>
 </div>
-<span className="font-body-md text-body-md text-on-surface font-semibold">$0.99</span>
+<span className="font-body-md text-body-md text-on-surface font-semibold">₹49</span>
 </div>
 <div className="flex items-center justify-between text-primary">
 <span className="font-body-md text-body-md font-semibold">Coupon Discount (SUPER20)</span>
-<span className="font-body-md text-body-md font-bold">-$2.00</span>
+<span className="font-body-md text-body-md font-bold">-₹40</span>
 </div>
 {/*  Separation & Net Amount  */}
 <div className="h-px bg-surface-container-high my-1"></div>
@@ -286,11 +286,11 @@ export default function StitchSmartCartSplitCheckout({ onNavigate, onAction, dat
 <div className="flex flex-col">
 <span className="font-headline-sm text-headline-sm font-extrabold">To Pay</span>
 <span className="font-label-badge text-label-badge text-primary bg-primary-fixed/30 px-1.5 py-0.5 rounded-full inline-block mt-0.5">
-            🎉 Total savings $4.50 on this order
+            🎉 Total savings ₹90 on this order
           </span>
 </div>
 <span className="font-headline-xl-mobile text-headline-xl-mobile font-extrabold text-on-surface">
-          $29.88
+          ₹1,494
         </span>
 </div>
 </div>
@@ -306,8 +306,8 @@ export default function StitchSmartCartSplitCheckout({ onNavigate, onAction, dat
 {/*  Total Display & Quick Breakdown link  */}
 <div className="flex flex-col min-w-0">
 <div className="flex items-baseline gap-1.5">
-<span className="font-headline-xl-mobile text-headline-xl-mobile font-extrabold text-on-surface">$29.88</span>
-<span className="font-price-strike text-price-strike text-outline line-through">$34.38</span>
+<span className="font-headline-xl-mobile text-headline-xl-mobile font-extrabold text-on-surface">₹1,494</span>
+<span className="font-price-strike text-price-strike text-outline line-through">₹1,720</span>
 </div>
 <button className="font-label-badge text-label-badge text-primary font-bold flex items-center gap-0.5 hover:underline" type="button">
 <span>View Detailed Bill</span>

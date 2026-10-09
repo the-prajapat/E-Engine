@@ -20,7 +20,7 @@ export default function StitchQuickCommerceHome({ onNavigate, onAction, data, ..
 <span className="font-label-badge text-label-badge uppercase tracking-wider text-on-surface-variant font-bold">Deliver to</span>
 <span className="material-symbols-outlined text-on-surface-variant text-[16px]">expand_more</span>
 </div>
-<span className="font-body-sm text-body-sm font-bold text-on-surface truncate">Home - 42 Elm Street, Brooklyn, NY</span>
+<span className="font-body-sm text-body-sm font-bold text-on-surface truncate">Home - Civil Lines, Metro Sector 14, Jaipur</span>
 </div>
 </div>
 <div className="flex items-center gap-1 bg-secondary-container px-space-sm py-1 rounded-full shadow-sm shrink-0">
@@ -114,8 +114,8 @@ export default function StitchQuickCommerceHome({ onNavigate, onAction, data, ..
 </div>
 <div className="flex items-end justify-between gap-1 pt-1">
 <div className="flex flex-col">
-<span className="font-price-strike text-price-strike line-through text-outline">$4.20</span>
-<span className="font-price-display text-price-display text-primary leading-tight">$3.49</span>
+<span className="font-price-strike text-price-strike line-through text-outline">₹180</span>
+<span className="font-price-display text-price-display text-primary leading-tight">₹149</span>
 </div>
 {/*  Quantity Stepper  */}
 <div className="flex items-center bg-primary text-on-primary rounded-full px-1 py-1 shadow-md shrink-0 select-none">
@@ -145,7 +145,7 @@ export default function StitchQuickCommerceHome({ onNavigate, onAction, data, ..
 <div className="flex items-end justify-between gap-1 pt-1">
 <div className="flex flex-col">
 <span className="font-price-strike text-price-strike text-transparent select-none"> </span>
-<span className="font-price-display text-price-display text-primary leading-tight">$4.19</span>
+<span className="font-price-display text-price-display text-primary leading-tight">₹175</span>
 </div>
 {/*  Quantity Stepper  */}
 <div className="flex items-center bg-primary text-on-primary rounded-full px-1 py-1 shadow-md shrink-0 select-none">
@@ -174,8 +174,8 @@ export default function StitchQuickCommerceHome({ onNavigate, onAction, data, ..
 </div>
 <div className="flex items-end justify-between gap-1 pt-1">
 <div className="flex flex-col">
-<span className="font-price-strike text-price-strike line-through text-outline">$2.30</span>
-<span className="font-price-display text-price-display text-primary leading-tight">$1.89</span>
+<span className="font-price-strike text-price-strike line-through text-outline">₹115</span>
+<span className="font-price-display text-price-display text-primary leading-tight">₹95</span>
 </div>
 {/*  Quantity Stepper  */}
 <div className="flex items-center bg-primary text-on-primary rounded-full px-1 py-1 shadow-md shrink-0 select-none">
@@ -208,7 +208,7 @@ export default function StitchQuickCommerceHome({ onNavigate, onAction, data, ..
 <div className="flex items-end justify-between gap-1 pt-1">
 <div className="flex flex-col">
 <span className="font-price-strike text-price-strike text-transparent select-none"> </span>
-<span className="font-price-display text-price-display text-primary leading-tight">$3.99</span>
+<span className="font-price-display text-price-display text-primary leading-tight">₹199</span>
 </div>
 {/*  Quantity Stepper  */}
 <div className="flex items-center bg-primary text-on-primary rounded-full px-1 py-1 shadow-md shrink-0 select-none">
@@ -238,7 +238,7 @@ export default function StitchQuickCommerceHome({ onNavigate, onAction, data, ..
 <div className="flex items-end justify-between gap-1 pt-1">
 <div className="flex flex-col">
 <span className="font-price-strike text-price-strike text-transparent select-none"> </span>
-<span className="font-price-display text-price-display text-primary leading-tight">$4.49</span>
+<span className="font-price-display text-price-display text-primary leading-tight">₹225</span>
 </div>
 {/*  Quantity Stepper  */}
 <div className="flex items-center bg-primary text-on-primary rounded-full px-1 py-1 shadow-md shrink-0 select-none">
@@ -267,8 +267,8 @@ export default function StitchQuickCommerceHome({ onNavigate, onAction, data, ..
 </div>
 <div className="flex items-end justify-between gap-1 pt-1">
 <div className="flex flex-col">
-<span className="font-price-strike text-price-strike line-through text-outline">$3.49</span>
-<span className="font-price-display text-price-display text-primary leading-tight">$2.99</span>
+<span className="font-price-strike text-price-strike line-through text-outline">₹149</span>
+<span className="font-price-display text-price-display text-primary leading-tight">₹149</span>
 </div>
 {/*  Quantity Stepper  */}
 <div className="flex items-center bg-primary text-on-primary rounded-full px-1 py-1 shadow-md shrink-0 select-none">

@@ -140,9 +140,9 @@ export default function StitchLiveOrderTracking({ onNavigate, onAction, data, ..
           Tip Liam
         </span>
 <div className="flex items-center gap-1.5" id="tipGroup">
-<button className="tip-pill px-3 py-1 rounded-full bg-surface-container-lowest text-on-surface font-label-action text-label-action shadow-sm hover:bg-primary-container hover:text-on-primary-container transition-colors" data-amount="1" type="button">$1</button>
-<button className="tip-pill px-3 py-1 rounded-full bg-primary text-on-primary font-label-action text-label-action shadow-sm transition-colors" data-amount="2" type="button">$2</button>
-<button className="tip-pill px-3 py-1 rounded-full bg-surface-container-lowest text-on-surface font-label-action text-label-action shadow-sm hover:bg-primary-container hover:text-on-primary-container transition-colors" data-amount="3" type="button">$3</button>
+<button className="tip-pill px-3 py-1 rounded-full bg-surface-container-lowest text-on-surface font-label-action text-label-action shadow-sm hover:bg-primary-container hover:text-on-primary-container transition-colors" data-amount="1" type="button">₹20</button>
+<button className="tip-pill px-3 py-1 rounded-full bg-primary text-on-primary font-label-action text-label-action shadow-sm transition-colors" data-amount="2" type="button">₹50</button>
+<button className="tip-pill px-3 py-1 rounded-full bg-surface-container-lowest text-on-surface font-label-action text-label-action shadow-sm hover:bg-primary-container hover:text-on-primary-container transition-colors" data-amount="3" type="button">₹100</button>
 <button className="tip-pill px-2.5 py-1 rounded-full bg-surface-container-lowest text-on-surface font-label-action text-label-action shadow-sm hover:bg-surface-container transition-colors" data-amount="custom" type="button">Other</button>
 </div>
 </div>

@@ -114,7 +114,7 @@ export default function StitchB2BWholesaleMarketplace({ onNavigate, onAction, da
 <div className="flex flex-col">
 <span className="font-label-sm text-label-sm text-outline">Bulk Tier</span>
 <div className="flex items-baseline gap-1">
-<span className="font-headline-md text-headline-md text-primary font-bold">$18.50</span>
+<span className="font-headline-md text-headline-md text-primary font-bold">₹1,480</span>
 <span className="font-label-sm text-label-sm text-on-surface-variant">/tin</span>
 </div>
 </div>
@@ -150,7 +150,7 @@ export default function StitchB2BWholesaleMarketplace({ onNavigate, onAction, da
 <div className="flex flex-col">
 <span className="font-label-sm text-label-sm text-outline">Bulk Tier</span>
 <div className="flex items-baseline gap-1">
-<span className="font-headline-md text-headline-md text-primary font-bold">$29.00</span>
+<span className="font-headline-md text-headline-md text-primary font-bold">₹2,320</span>
 <span className="font-label-sm text-label-sm text-on-surface-variant">/bag</span>
 </div>
 </div>
@@ -189,7 +189,7 @@ export default function StitchB2BWholesaleMarketplace({ onNavigate, onAction, da
 <div className="flex flex-col">
 <span className="font-label-sm text-label-sm text-outline">Bulk Tier</span>
 <div className="flex items-baseline gap-1">
-<span className="font-headline-md text-headline-md text-primary font-bold">$41.20</span>
+<span className="font-headline-md text-headline-md text-primary font-bold">₹3,296</span>
 <span className="font-label-sm text-label-sm text-on-surface-variant">/bag</span>
 </div>
 </div>
@@ -274,7 +274,7 @@ export default function StitchB2BWholesaleMarketplace({ onNavigate, onAction, da
 <div className="grid grid-cols-3 gap-2 bg-surface-container-low p-2.5 rounded-lg">
 <div className="flex flex-col">
 <span className="font-label-sm text-[11px] text-outline font-medium">Min Order (MOQ)</span>
-<span className="font-label-sm text-label-sm text-primary font-bold truncate">50 units / $1,500</span>
+<span className="font-label-sm text-label-sm text-primary font-bold truncate">50 units / ₹1,20,000</span>
 </div>
 <div className="flex flex-col">
 <span className="font-label-sm text-[11px] text-outline font-medium">Payment Terms</span>
@@ -349,7 +349,7 @@ export default function StitchB2BWholesaleMarketplace({ onNavigate, onAction, da
 <div className="grid grid-cols-3 gap-2 bg-surface-container-low p-2.5 rounded-lg">
 <div className="flex flex-col">
 <span className="font-label-sm text-[11px] text-outline font-medium">Min Order (MOQ)</span>
-<span className="font-label-sm text-label-sm text-primary font-bold truncate">100 cases / $2,200</span>
+<span className="font-label-sm text-label-sm text-primary font-bold truncate">100 cases / ₹1,76,000</span>
 </div>
 <div className="flex flex-col">
 <span className="font-label-sm text-[11px] text-outline font-medium">Payment Terms</span>
@@ -424,7 +424,7 @@ export default function StitchB2BWholesaleMarketplace({ onNavigate, onAction, da
 <div className="grid grid-cols-3 gap-2 bg-surface-container-low p-2.5 rounded-lg">
 <div className="flex flex-col">
 <span className="font-label-sm text-[11px] text-outline font-medium">Min Order (MOQ)</span>
-<span className="font-label-sm text-label-sm text-primary font-bold truncate">500 units / $850</span>
+<span className="font-label-sm text-label-sm text-primary font-bold truncate">500 units / ₹68,000</span>
 </div>
 <div className="flex flex-col">
 <span className="font-label-sm text-[11px] text-outline font-medium">Payment Terms</span>
