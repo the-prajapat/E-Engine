@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { RetailHome, WholesaleHome } from './pages/index.js';
 
+/**
+ * Root Application Container
+ * Bridges Smart Page Containers with live state switching.
+ */
 export default function App() {
+  const [activeMode, setActiveMode] = useState('retail');
+
   return (
-    <main style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'system-ui, -apple-system, sans-serif', backgroundColor: '#090d16', color: '#f8fafc' }}>
-      <div style={{ textAlign: 'center', padding: '2rem', maxWidth: '480px' }}>
-        <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>⚡</div>
-        <h1 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.75rem', letterSpacing: '-0.025em' }}>E-Engine Clean Slate</h1>
-        <p style={{ color: '#94a3b8', fontSize: '0.925rem', lineHeight: 1.5 }}>
-          Frontend UI/UX and Auth directories wiped clean. Ready for new design system and specifications.
-        </p>
-      </div>
-    </main>
+    <div style={{ minHeight: '100vh', width: '100%' }}>
+      {activeMode === 'retail' ? (
+        <RetailHome onSwitchToWholesale={() => setActiveMode('wholesale')} />
+      ) : (
+        <WholesaleHome onSwitchToRetail={() => setActiveMode('retail')} />
+      )}
+    </div>
   );
 }
