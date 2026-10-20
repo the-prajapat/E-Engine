@@ -11,12 +11,14 @@ import {
   fetchProductCatalog,
   fetchStitchProjectDetails,
 } from '../../../shared-core/api-client.js';
+import { useGlobalBridge } from '../../../shared-core/global-bridge.js';
 
 /**
  * WholesaleHome (Smart Container Page)
  * Fully fluid, mobile-first B2B Marketplace Hub with safe-area padding and 44px+ controls.
  */
 export default function WholesaleHome({ onNavigateTab }) {
+  const { config: sharedConfig } = useGlobalBridge();
   const [user, setUser] = useState(null);
   const [projects, setProjects] = useState([]);
   const [wholesaleProducts, setWholesaleProducts] = useState([]);
@@ -160,6 +162,66 @@ export default function WholesaleHome({ onNavigateTab }) {
             ))}
           </div>
         )}
+
+        {/* ─── Verified Dealers Directory (Bridge Synchronized) ───── */}
+        <div className="flex flex-col gap-2.5 pt-2">
+          <div className="flex items-center justify-between">
+            <h3 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">
+              Verified Suppliers &amp; Dealers
+            </h3>
+            <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+              Live Vetted
+            </span>
+          </div>
+
+          <div className="w-full flex flex-col gap-2">
+            {(sharedConfig?.dealersList || []).map((dealer) => (
+              <div
+                key={dealer.id}
+                className="p-3 bg-white border border-slate-200/80 rounded-2xl shadow-xs flex flex-col gap-2"
+              >
+                <div className="flex items-start justify-between">
+                  <div>
+                    <h4 className="text-xs font-bold text-slate-900 flex items-center gap-1">
+                      {dealer.name}
+                      {dealer.verified && (
+                        <span className="material-symbols-outlined text-emerald-600 text-sm">verified</span>
+                      )}
+                    </h4>
+                    <p className="text-[10px] text-slate-500 mt-0.5">{dealer.category} • {dealer.city}</p>
+                  </div>
+                  <span className="text-[10px] font-bold text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">
+                    ★ {dealer.rating}
+                  </span>
+                </div>
+
+                {/* Badges Pill Row */}
+                <div className="flex flex-wrap items-center gap-1.5 pt-1 border-t border-slate-100">
+                  {dealer.verified && (
+                    <span className="inline-flex items-center gap-0.5 text-[9px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
+                      <span className="material-symbols-outlined text-[11px]">verified</span> Verified Dealer
+                    </span>
+                  )}
+                  {dealer.fastDispatch && (
+                    <span className="inline-flex items-center gap-0.5 text-[9px] font-bold text-blue-700 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-200">
+                      <span className="material-symbols-outlined text-[11px]">bolt</span> 10m Express
+                    </span>
+                  )}
+                  {dealer.isoCertified && (
+                    <span className="inline-flex items-center gap-0.5 text-[9px] font-bold text-purple-700 bg-purple-50 px-1.5 py-0.5 rounded border border-purple-200">
+                      <span className="material-symbols-outlined text-[11px]">shield_with_heart</span> ISO 9001
+                    </span>
+                  )}
+                  {dealer.qualityAssured && (
+                    <span className="inline-flex items-center gap-0.5 text-[9px] font-bold text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">
+                      <span className="material-symbols-outlined text-[11px]">workspace_premium</span> Assured
+                    </span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* ─── Active Enterprise Projects ──────────────────────────────── */}
         <div className="flex flex-col gap-2.5 pt-2">

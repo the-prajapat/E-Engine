@@ -6,10 +6,11 @@ import { useState, useEffect } from 'react';
  *
  * Synchronizes:
  * - SLA Timers (e.g., 10-minute delivery countdown & thresholds)
- * - Promotional Banners & Announcements
+ * - Promotional Banners & Announcements (Add, Remove, Toggle)
  * - AI Smart Cart Rules (split order rules, delivery minimums)
  * - Verified Badges & Vendor Status
  * - Minimum Order Quantities (MOQ) & Volume Discount Tiers
+ * - Registered Dealers Directory & Badging
  */
 
 const STORAGE_KEY = 'e_engine_shared_bridge_state';
@@ -19,6 +20,7 @@ export const DEFAULT_SHARED_CONFIG = {
   // 1. SLA Delivery Timers
   slaTimerMinutes: 10,
   slaAlertMessage: 'Express Dark Store dispatch in under 10 minutes',
+  expressDispatchEnabled: true,
 
   // 2. Promotional Banners
   promotionalBanners: [
@@ -29,6 +31,7 @@ export const DEFAULT_SHARED_CONFIG = {
       audience: 'retail',
       active: true,
       badge: 'PROMO',
+      code: 'QUICK150',
     },
     {
       id: 'banner-wholesale-1',
@@ -37,6 +40,7 @@ export const DEFAULT_SHARED_CONFIG = {
       audience: 'wholesale',
       active: true,
       badge: 'B2B MEGA DEAL',
+      code: 'BULK22',
     },
   ],
 
@@ -54,6 +58,7 @@ export const DEFAULT_SHARED_CONFIG = {
     verifiedDealer: { label: 'Verified Dealer', icon: 'verified', color: '#10b981', enabled: true },
     fastDelivery: { label: '10-Min Quick Delivery', icon: 'bolt', color: '#0066cc', enabled: true },
     isoCertified: { label: 'ISO 9001:2015 Certified', icon: 'shield_with_heart', color: '#6366f1', enabled: true },
+    qualityAssured: { label: 'Quality Assured', icon: 'workspace_premium', color: '#f59e0b', enabled: true },
   },
 
   // 5. Minimum Order Quantities (MOQ) & Wholesale Pricing Rules
@@ -61,11 +66,67 @@ export const DEFAULT_SHARED_CONFIG = {
     defaultMOQ: 50,
     enforceStrictMOQ: true,
     discountTiers: [
-      { minUnits: 50, discountPct: 5, label: 'Starter Wholesale (5% Off)' },
-      { minUnits: 100, discountPct: 10, label: 'Dealer Tier (10% Off)' },
-      { minUnits: 500, discountPct: 18, label: 'Enterprise Distributor (18% Off)' },
+      { id: 'tier-1', minUnits: 50, discountPct: 5, label: 'Starter Wholesale (5% Off)' },
+      { id: 'tier-2', minUnits: 100, discountPct: 10, label: 'Dealer Tier (10% Off)' },
+      { id: 'tier-3', minUnits: 500, discountPct: 18, label: 'Enterprise Distributor (18% Off)' },
     ],
   },
+
+  // 6. Registered Dealers & Live Verification Status
+  dealersList: [
+    {
+      id: 'd1',
+      name: 'Sharma Bearing & Industrial Spares',
+      rating: 4.9,
+      reviewsCount: 342,
+      category: 'Bearings, Fasteners & Hardware',
+      verified: true,
+      fastDispatch: true,
+      isoCertified: true,
+      qualityAssured: true,
+      gstin: '08AAAAA1234A1Z1',
+      city: 'Jaipur, Rajasthan',
+    },
+    {
+      id: 'd2',
+      name: 'Rajkot Fluid Dynamics & Valves Ltd.',
+      rating: 4.8,
+      reviewsCount: 189,
+      category: 'Pumps, Valves & Piping',
+      verified: true,
+      fastDispatch: true,
+      isoCertified: false,
+      qualityAssured: true,
+      gstin: '24BBBBB5678B1Z2',
+      city: 'Rajkot, Gujarat',
+    },
+    {
+      id: 'd3',
+      name: 'Apex Industrial Fasteners & Bolts',
+      rating: 4.6,
+      reviewsCount: 114,
+      category: 'Industrial Hardware & Fasteners',
+      verified: false,
+      fastDispatch: false,
+      isoCertified: false,
+      qualityAssured: false,
+      gstin: '07CCCCC9012C1Z3',
+      city: 'Delhi NCR',
+    },
+    {
+      id: 'd4',
+      name: 'Gujarat Precision Gears & Tools',
+      rating: 4.7,
+      reviewsCount: 96,
+      category: 'Machinery & Transmission',
+      verified: true,
+      fastDispatch: false,
+      isoCertified: true,
+      qualityAssured: false,
+      gstin: '24DDDDD3456D1Z4',
+      city: 'Ahmedabad, Gujarat',
+    },
+  ],
 };
 
 // In-Memory State & Subscriptions
@@ -124,6 +185,8 @@ export function updateSharedConfig(patch) {
       ...currentState.moqLimits,
       ...(patch.moqLimits || {}),
     },
+    promotionalBanners: patch.promotionalBanners || currentState.promotionalBanners,
+    dealersList: patch.dealersList || currentState.dealersList,
   };
 
   persistState(currentState);

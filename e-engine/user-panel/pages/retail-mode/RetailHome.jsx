@@ -5,6 +5,7 @@ import {
   LoadingSkeleton,
 } from '../../ui-ux-design/index.js';
 import { fetchProductCatalog, fetchUserDetails } from '../../../shared-core/api-client.js';
+import { useGlobalBridge } from '../../../shared-core/global-bridge.js';
 
 const QUICK_CATEGORIES = [
   { id: 'all', label: 'All', icon: 'apps' },
@@ -23,6 +24,7 @@ export default function RetailHome({
   onUpdateCart,
   onNavigateTab,
 }) {
+  const { config: sharedConfig } = useGlobalBridge();
   const [products, setProducts] = useState([]);
   const [user, setUser] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -94,9 +96,9 @@ export default function RetailHome({
       {/* ─── Top Location Bar ────────────────────────────────────────── */}
       <TopLocationBar
         address="Civil Lines, Metro Hub, Jaipur"
-        eta="10 MINS"
+        eta={`${sharedConfig.slaTimerMinutes} MINS`}
         onProfileClick={() => onNavigateTab && onNavigateTab('profile')}
-        onSelectAddress={() => alert('Delivery address: Civil Lines, Jaipur (10 Mins)')}
+        onSelectAddress={() => alert(`Delivery address: Civil Lines, Jaipur (${sharedConfig.slaTimerMinutes} Mins)`)}
       />
 
       {/* ─── Search Bar ──────────────────────────────────────────────── */}
@@ -135,7 +137,7 @@ export default function RetailHome({
               Get 20% OFF on Tech &amp; Essentials
             </h2>
             <p className="text-[11px] text-blue-100">
-              Guaranteed delivery in 10 minutes to Civil Lines, Jaipur
+              Guaranteed delivery in {sharedConfig.slaTimerMinutes} minutes to Civil Lines, Jaipur
             </p>
           </div>
           {/* Subtle background glow */}

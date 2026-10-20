@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "test": "node --check e-engine/shared-core/mcp-config.js e-engine/shared-core/api-client.js e-engine/shared-core/testsprite-runner.js e-engine/shared-core/global-bridge.js e-engine/shared-core/index.js e-engine/user-panel/ui-ux-design/theme.config.js e-engine/user-panel/ui-ux-design/components/index.js e-engine/user-panel/ui-ux-design/index.js e-engine/user-panel/pages/index.js e-engine/user-panel/logic/index.js e-engine/user-panel/index.js e-engine/admin-panel/pages/AdminRoot.js e-engine/admin-panel/index.js e-engine/dealer-panel/pages/DealerRoot.js e-engine/dealer-panel/index.js e-engine/index.js",
+    "test": "node --check e-engine/shared-core/mcp-config.js e-engine/shared-core/api-client.js e-engine/shared-core/testsprite-runner.js e-engine/shared-core/global-bridge.js e-engine/shared-core/index.js e-engine/user-panel/ui-ux-design/theme.config.js e-engine/user-panel/ui-ux-design/components/index.js e-engine/user-panel/ui-ux-design/index.js e-engine/user-panel/pages/index.js e-engine/user-panel/logic/index.js e-engine/user-panel/index.js e-engine/admin-panel/pages/AdminRoot.js e-engine/admin-panel/logic/useAdminBridge.js e-engine/admin-panel/logic/index.js e-engine/admin-panel/index.js e-engine/dealer-panel/pages/DealerRoot.js e-engine/dealer-panel/index.js e-engine/index.js",
     "test:sprite": "node scripts/run-testsprite.mjs"
   },
   "dependencies": {

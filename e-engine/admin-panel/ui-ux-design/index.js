@@ -1,8 +1,8 @@
 /**
  * Admin Panel UI/UX Design System Export Hub
- * Presentation components for Desktop Web Admin.
  */
 
+export * from './AdminUI.jsx';
 export const ADMIN_THEME = {
   primary: '#2563eb',
   sidebarBg: '#0f172a',

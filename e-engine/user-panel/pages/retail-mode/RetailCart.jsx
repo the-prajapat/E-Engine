@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { QuantityStepper } from '../../ui-ux-design/index.js';
+import { useGlobalBridge } from '../../../shared-core/global-bridge.js';
 
 /**
  * RetailCart (Smart Container Page)
@@ -10,6 +11,7 @@ export default function RetailCart({
   onUpdateCart,
   onNavigateTab,
 }) {
+  const { config: sharedConfig } = useGlobalBridge();
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState('upi');
 
@@ -19,7 +21,7 @@ export default function RetailCart({
     (sum, item) => sum + item.price * item.quantity,
     0
   );
-  const deliveryThreshold = 499;
+  const deliveryThreshold = sharedConfig?.aiSmartCartRules?.freeDeliveryMinimum || 299;
   const deliveryFee = subtotal >= deliveryThreshold || subtotal === 0 ? 0 : 25;
   const platformFee = subtotal > 0 ? 2 : 0;
   const grandTotal = subtotal + deliveryFee + platformFee;
@@ -86,7 +88,7 @@ export default function RetailCart({
           </p>
         </div>
         <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
-          ⚡ 10 Mins ETA
+          ⚡ {sharedConfig.slaTimerMinutes} Mins ETA
         </span>
       </header>
 
@@ -128,6 +130,21 @@ export default function RetailCart({
               />
             </div>
           </div>
+
+          {/* ─── AI Smart Cart Split Order Notice (Bridge Connected) ─── */}
+          {sharedConfig?.aiSmartCartRules?.enableSplitAlert && (
+            <div className="w-full p-3 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/90 rounded-2xl flex items-start gap-2.5 text-xs text-blue-900 shadow-xs">
+              <span className="material-symbols-outlined text-blue-600 text-base shrink-0 mt-0.5">auto_awesome</span>
+              <div className="flex-1">
+                <span className="font-extrabold text-[11px] text-blue-700 block uppercase tracking-wide">
+                  AI Smart Cart Split Active
+                </span>
+                <span className="text-slate-700 text-[11px] leading-relaxed">
+                  {sharedConfig?.aiSmartCartRules?.splitWarningText}
+                </span>
+              </div>
+            </div>
+          )}
 
           {/* ─── Items List ────────────────────────────────────────────── */}
           <div className="w-full bg-white rounded-2xl border border-slate-200/80 p-3 shadow-xs divide-y divide-slate-100 flex flex-col">
