@@ -22,7 +22,7 @@ if (fs.existsSync(envPath)) {
   }
 }
 
-import { initTestSprite, runTestSpriteSuite } from '../engine/testsprite-runner.js';
+import { initTestSprite, runTestSpriteSuite } from '../e-engine/shared-core/testsprite-runner.js';
 
 console.log('\n======================================================');
 console.log('   🧪 TestSprite / teststrips Automated Test Engine   ');

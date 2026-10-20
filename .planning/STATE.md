@@ -22,11 +22,13 @@
 - **Verification & Integrity**:
   - `npm test`: Passed (0 errors).
   - `npm run test:sprite`: 9/9 test suites passed (0 errors) with status `CONNECTED_AUTHORIZED`.
-  - `npm run build`: Production bundle compiled in 297ms (0 errors).
+  - `npm run build`: Production bundle compiled in 317ms (0 errors).
   - Dev server: Running in background on `http://localhost:5173/` and `http://192.168.29.98:5173/`.
-  - GitHub Remote: 100% synchronized with `the-prajapat/E-Engine` on branch `main` (`origin/main`). Windows Credential Manager configured for automatic push.
+  - Domain Architecture: Master root directory `/e-engine/` with 4 isolated top-level portals: `user-panel/`, `admin-panel/`, `dealer-panel/`, and `shared-core/`.
+  - GitHub Remote: Synchronized with `the-prajapat/E-Engine` on branch `main`.
 
 ## Architectural Decisions Log (ADR)
+- **ADR-016**: Domain-Based Modular Architecture & Master Directory Consolidation: Consolidated all application code into `/e-engine/` containing 4 isolated domains: `/e-engine/user-panel/`, `/e-engine/admin-panel/`, `/e-engine/dealer-panel/`, and `/e-engine/shared-core/`. Created `global-bridge.js` reactive store for synchronized cross-panel communication (SLA timers, banners, AI Smart Cart rules, verified badges, and MOQ limits). Cleaned up legacy `src/` and `engine/` root directories with zero broken imports or infinite loops.
 - **ADR-015**: Remote GitHub Repository Synchronization & Credential Automation: Connected upstream to `https://github.com/the-prajapat/E-Engine.git` on branch `main`. Configured Windows Credential Store (`cmdkey`) to enable persistent automated and manual git pushes without re-entering credentials.
 - **ADR-014**: Fluid Mobile-First Layout System: Replaced fixed width wrappers with relative units, enabled `overflow-y-auto` with `min-h-screen`, enforced `gap-` utilities, safe horizontal padding (`px-4 sm:px-5`), and $\ge 44\text{px}$ touch targets across all mobile views.
 - **ADR-013**: Production Mobile Client Architecture: Standardized mobile viewport to 448px max width container, eliminated debug overlays, implemented dual-mode bottom navigation, and decoupled role gate onboarding with persistent state.
