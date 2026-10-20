@@ -24,8 +24,10 @@
   - `npm run test:sprite`: 9/9 test suites passed (0 errors) with status `CONNECTED_AUTHORIZED`.
   - `npm run build`: Production bundle compiled in 297ms (0 errors).
   - Dev server: Running in background on `http://localhost:5173/` and `http://192.168.29.98:5173/`.
+  - GitHub Remote: 100% synchronized with `the-prajapat/E-Engine` on branch `main` (`origin/main`). Windows Credential Manager configured for automatic push.
 
 ## Architectural Decisions Log (ADR)
+- **ADR-015**: Remote GitHub Repository Synchronization & Credential Automation: Connected upstream to `https://github.com/the-prajapat/E-Engine.git` on branch `main`. Configured Windows Credential Store (`cmdkey`) to enable persistent automated and manual git pushes without re-entering credentials.
 - **ADR-014**: Fluid Mobile-First Layout System: Replaced fixed width wrappers with relative units, enabled `overflow-y-auto` with `min-h-screen`, enforced `gap-` utilities, safe horizontal padding (`px-4 sm:px-5`), and $\ge 44\text{px}$ touch targets across all mobile views.
 - **ADR-013**: Production Mobile Client Architecture: Standardized mobile viewport to 448px max width container, eliminated debug overlays, implemented dual-mode bottom navigation, and decoupled role gate onboarding with persistent state.
 - **ADR-012**: Currency & Locale Localization: Standardized all pricing, tiered MOQ rates, discounts, delivery thresholds, and delivery tracking tips to INR (₹) across both retail B2C and wholesale B2B modules.
